@@ -1,0 +1,13 @@
+.sideBar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.login {
+  border: 1px solid red;
+}
+
+.sponsors {
+  border: 1px solid green;
+}
