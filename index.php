@@ -18,7 +18,7 @@
           <?php include "components/sidebar.php" ?>
         </div>
         <div class="content">
-          content
+          <?php include "components/content.php"; ?>
         </div>
       </div>
       <div class="footer headerFooter">

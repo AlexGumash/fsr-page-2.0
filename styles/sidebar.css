@@ -6,6 +6,64 @@
 
 .login {
   border: 1px solid red;
+  padding: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  width: 50%;
+}
+
+.login-submit {
+  margin: 0 auto 10px;
+  width: 80%;
+}
+
+.registration {
+  font-size: 10px;
+  color: rgb(117, 117, 117);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.registration-link {
+  text-decoration: underline;
+}
+
+.my-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid red;
+}
+
+.my-account-link {
+  border-radius: 5px;
+  padding: 7px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.logout-link {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .sponsors {
