@@ -45,6 +45,10 @@
   margin: 0;
 }
 
+.menu-link {
+  color: black;
+}
+
 .menu-item {
   flex-grow: 1;
   margin-right: 10px;

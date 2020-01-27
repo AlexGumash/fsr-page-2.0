@@ -5,7 +5,8 @@
 }
 
 .login {
-  border: 1px solid red;
+  /* border-left: 1px solid grey; */
+  border-bottom: 1px solid grey;
   padding: 10px;
 }
 
@@ -51,7 +52,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 10px;
-  border: 1px solid red;
+  border-bottom: 1px solid grey;
 }
 
 .my-account-link {
@@ -67,5 +68,5 @@
 }
 
 .sponsors {
-  border: 1px solid green;
+  border-bottom: 1px solid grey;
 }

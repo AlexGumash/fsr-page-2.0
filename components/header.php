@@ -9,7 +9,7 @@
     <ul class="menuList">
       <li class="menu-item">
         <div class="">
-          <a href="#" class="menu-link">
+          <a href="/index.php" class="menu-link">
             <div class="list-item">
               <span>
                 Home

@@ -21,9 +21,9 @@
           <?php include "components/content.php"; ?>
         </div>
       </div>
-      <div class="footer headerFooter">
+      <!-- <div class="footer headerFooter">
         footer
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
