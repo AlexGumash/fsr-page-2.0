@@ -13,16 +13,21 @@ if (isset($_REQUEST['login-submit'])) {
   if (!$user) {
     die("Неправильный логин или пароль");
   }
+
+  $id = $user['id'];
   $_SESSION['login'] = $login;
+  $_SESSION['id'] = $id;
   // $_SESSION['rights'] = $user['rights'];
   header('Location: ../index.php');
 }
 
 if (isset($_REQUEST['logout'])) {
   $_SESSION['login'] = '';
+  $_SESSION['id'] = '';
   // $_SESSION['rights'] = '';
 
   unset($_SESSION['login']);
+  unset($_SESSION['id']);
   // unset($_SESSION['rights']);
 
   header('Location: ../index.php');

@@ -1,0 +1,55 @@
+<?php
+  include '../useful/counties.php';
+  include '../useful/unis.php';
+?>
+
+<div class="create-team">
+  <form class="" action="../handlers/create-team.php" method="post">
+    <div class="create-team-form">
+      <div class="form-div">
+        <span>Uni:</span>
+        <input type="text" name="uni" value="" list="unis" required>
+      </div>
+      <div class="form-div">
+        <span>Name:</span>
+        <input type="text" name="name" value="" required>
+      </div>
+      <div class="form-div">
+        <span>Class:</span>
+        <div class="">
+          <span>CV</span>
+          <input type="radio" name="class" value="CV" checked>
+          <span>EV</span>
+          <input type="radio" name="class" value="EV">
+        </div>
+      </div>
+      <div class="form-div">
+        <span>Homepage:</span>
+        <input type="text" name="homepage" value="" required>
+      </div>
+      <!-- <div class="form-div">
+        <span>Social media:</span>
+        <input type="text" name="media" value="">
+      </div> -->
+      <div class="form-div">
+        <span>Email:</span>
+        <input type="email" name="email" value="" required>
+      </div>
+      <div class="form-div">
+        <span>Phone:</span>
+        <input type="tel" name="phone" value="" placeholder="+XX XXX XXX XX XX" required>
+      </div>
+      <div class="form-div">
+        <span>Country:</span>
+        <input type="text" name="country" value="" list="countries" required>
+      </div>
+      <div class="form-div">
+        <span>Address:</span>
+        <textarea name="address" class="team-textarea" required></textarea>
+      </div>
+      <div class="submit-div">
+        <input type="submit" name="create-team-submit" value="Submit" style="width: 100px">
+      </div>
+    </div>
+  </form>
+</div>

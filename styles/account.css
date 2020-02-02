@@ -25,6 +25,15 @@
   cursor: pointer;
 }
 
+.account-menu-item-team {
+  color: black;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 3px 7px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .info {
   display: flex;
   flex-direction: row;

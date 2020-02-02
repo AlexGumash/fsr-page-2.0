@@ -1,0 +1,75 @@
+.team-container {
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.team-header {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.team-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.team-menu-item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 3px 7px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.list-header {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.member-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.member {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+}
+
+.name-container {
+  display: flex;
+}
+
+.firstname {
+  margin-right: 5px;
+}
+
+.event-registration-notification {
+  margin-bottom: 10px;
+}
+
+.event-registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-registration-number {
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

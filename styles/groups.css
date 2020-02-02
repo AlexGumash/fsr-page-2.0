@@ -1,0 +1,80 @@
+.groups-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-group {
+  margin-bottom: 20px;
+}
+
+.groups-list {
+  padding-left: 10px;
+}
+
+.group {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.group-label {
+  font-weight: bold;
+}
+
+.group-link {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.group-conf {
+  font-size: 80%;
+}
+
+.team-container {
+  width: 70%;
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+.join-create {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.join-create-option {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.create-team {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.team-textarea {
+  width: 195px;
+  height: 80px;
+  resize: none;
+  border: 1px solid rgb(169, 169, 169);
+  padding: 5px;
+}
+
+.choose-team {
+  padding-top: 20px;
+}
+
+.choose-team-notification {
+  font-size: 80%;
+  margin-bottom: 10px;
+}
+
+.choose-team-form {
+  margin-bottom: 5px;
+}
+
+.choose-team-input {
+  width: 300px;
+}

@@ -4,6 +4,8 @@
 @import 'content.css';
 @import 'registration.css';
 @import 'account.css';
+@import 'groups.css';
+@import 'team.css';
 
 body {
   width: 100%;

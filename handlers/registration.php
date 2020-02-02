@@ -9,12 +9,10 @@
     $lastname = $_REQUEST['lastname'];
     $email = $_REQUEST['email'];
 
-    $query = "INSERT INTO users VALUES (NULL, '$login', '$password', '$salutation', '$firstname', '$lastname', '$email', NULL, NULL, NULL, NULL, NULL, 'none', NULL)";
+    $query = "INSERT INTO users VALUES (NULL, 0, '$login', '$password', '$salutation', '$firstname', '$lastname', '$email', '', '', '', '', '', 'Regular user', '')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));
-    } else {
-      $_SESSION['login'] = $login;
     }
     header('Location: ../index.php');
   }
