@@ -6,6 +6,7 @@
     $query = "SELECT * FROM users WHERE login = '$login'";
     $result = mysqli_query($date, $query);
     $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $userid = $user['id'];
 
     $captain = $user['id'];
     $uni = $_REQUEST['uni'];
@@ -33,7 +34,7 @@
     } else {
       $group = 'FSE team member';
     }
-    $query = "UPDATE users SET teamid = '$teamid', group = '$group'";
+    $query = "UPDATE users SET teamid = '$teamid', `group` = '$group' WHERE id = '$userid'";
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);

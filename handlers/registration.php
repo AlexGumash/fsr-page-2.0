@@ -2,8 +2,9 @@
   session_start();
   include '../database/connection.php';
   if (isset($_REQUEST['submit-create-account'])) {
+    $pass = $_REQUEST['password'];
     $login = $_REQUEST['login'];
-    $password = hash('md5', $_REQUEST['password']);
+    $password = hash('md5', $pass);
     $salutation = $_REQUEST['salutation'];
     $firstname = $_REQUEST['firstname'];
     $lastname = $_REQUEST['lastname'];
@@ -14,6 +15,7 @@
     if (!$result) {
       die(mysqli_error($date));
     }
+
     header('Location: ../index.php');
   }
 

@@ -44,11 +44,11 @@
             <div class="account-menu-item" data_target='../components/account-edit.php'>
               <span>Edit Data</span>
             </div>
-            <div class="account-menu-item" data_target='../components/change-password.php'>
-              <span>Change Password</span>
-            </div>
             <div class="account-menu-item" data_target='../components/user-groups.php'>
               <span>User Groups</span>
+            </div>
+            <div class="account-menu-item" data_target='../components/change-password.php'>
+              <span>Change Password</span>
             </div>
             <?php
               if ($user['teamid'] != 0) {

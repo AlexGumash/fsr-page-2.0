@@ -37,7 +37,15 @@
 <div class="account-field">
   <span class="field-label">Postal address:</span>
   <div class="postal-text">
-    <span><?php echo $user['postal'] ?></span>
+    <span>
+      <?php
+        if ($user['postal']) {
+          echo $user['postal'];
+        } else {
+          echo '<span class="nodata">No data</span>';
+        }
+      ?>
+    </span>
   </div>
   <!-- <textarea name="postal" class="postal-text"></textarea> -->
 </div>
@@ -54,7 +62,15 @@
     <div class="account-field-info" style="margin-bottom: 0">
       <span class="label">Phone:</span>
       <div class="cont">
-        <span><?php echo $user['phone'] ?></span>
+        <span>
+          <?php
+            if ($user['phone']) {
+              echo $user['phone'];
+            } else {
+              echo '<span class="nodata">No data</span>';
+            }
+          ?>
+        </span>
       </div>
     </div>
   </div>
@@ -76,15 +92,39 @@
     </div>
     <div class="account-field-info">
       <span class="label">Clothing size:</span>
-      <span class="cont"><?php echo $user['clothingsize'] ?></span>
+      <span class="cont">
+        <?php
+          if ($user['clothingsize']) {
+            echo $user['clothingsize'];
+          } else {
+            echo '<span class="nodata">No data</span>';
+          }
+        ?>
+      </span>
     </div>
     <div class="account-field-info">
       <span class="label">Description:</span>
-      <span class="cont"><?php echo $user['description'] ?></span>
+      <span class="cont">
+        <?php
+          if ($user['description']) {
+            echo $user['description'];
+          } else {
+            echo '<span class="nodata">No data</span>';
+          }
+        ?>
+      </span>
     </div>
     <div class="account-field-info">
       <span class="label">Company:</span>
-      <span class="cont"><?php echo $user['company'] ?></span>
+      <span class="cont">
+        <?php
+          if ($user['company']) {
+            echo $user['company'];
+          } else {
+            echo '<span class="nodata">No data</span>';
+          }
+        ?>
+      </span>
     </div>
   </div>
 </div>

@@ -31,7 +31,7 @@
               <span class="group-conf">You can join an existing team or create new team</span>
             </div>
             <?php
-          } elseif ($value == 'Team adviser') {
+          } elseif ($value == 'Team faculty advisor') {
             ?>
             <div class="group">
               <a class="group-link" href="#"><?php echo $value; ?></a>

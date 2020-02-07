@@ -141,3 +141,7 @@ input, textarea {
   padding: 5px;
   font-size: 100%;
 }
+
+.nodata {
+  color: rgb(94, 94, 94);
+}

@@ -7,11 +7,11 @@
   <form class="" action="../handlers/create-team.php" method="post">
     <div class="create-team-form">
       <div class="form-div">
-        <span>Uni:</span>
+        <span>Uni:<span class="required-field">*</span></span>
         <input type="text" name="uni" value="" list="unis" required>
       </div>
       <div class="form-div">
-        <span>Name:</span>
+        <span>Team name:<span class="required-field">*</span></span>
         <input type="text" name="name" value="" required>
       </div>
       <div class="form-div">
@@ -25,26 +25,26 @@
       </div>
       <div class="form-div">
         <span>Homepage:</span>
-        <input type="text" name="homepage" value="" required>
+        <input type="text" name="homepage" value="">
       </div>
       <!-- <div class="form-div">
         <span>Social media:</span>
         <input type="text" name="media" value="">
       </div> -->
       <div class="form-div">
-        <span>Email:</span>
+        <span>Email:<span class="required-field">*</span></span>
         <input type="email" name="email" value="" required>
       </div>
       <div class="form-div">
-        <span>Phone:</span>
+        <span>Phone:<span class="required-field">*</span></span>
         <input type="tel" name="phone" value="" placeholder="+XX XXX XXX XX XX" required>
       </div>
       <div class="form-div">
-        <span>Country:</span>
+        <span>Country:<span class="required-field">*</span></span>
         <input type="text" name="country" value="" list="countries" required>
       </div>
       <div class="form-div">
-        <span>Address:</span>
+        <span>Address:<span class="required-field">*</span></span>
         <textarea name="address" class="team-textarea" required></textarea>
       </div>
       <div class="submit-div">
