@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <title>FSR</title>
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-    <!-- <script type="text/javascript" src='../scripts/ajax.js'></script> -->
+    <script type="text/javascript" src='../scripts/ajax.js'></script>
   </head>
   <body>
     <div class="container">

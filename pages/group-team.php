@@ -2,6 +2,7 @@
 <?php
   session_start();
   $login = $_SESSION['login'];
+  $class = $_REQUEST['class'];
   // $query = "SELECT * FROM users WHERE login = '$login'";
   // $result = mysqli_query($date, $query);
   // $user = mysqli_fetch_array($result, MYSQL_ASSOC);
@@ -25,9 +26,9 @@
           <div class="join-create">
             <span>
               Would you like to
-              <span class="join-create-option" data_target="../components/join-team.php">join an existing team</span>
+              <span class="join-create-option" data_target="../components/join-team.php?class=<?php echo $class; ?>">join an existing team</span>
               or to
-              <span class="join-create-option" data_target="../components/create-team.php">create a new team</span>
+              <span class="join-create-option" data_target="../components/create-team.php?class=<?php echo $class; ?>">create a new team</span>
               ?
             </span>
           </div>

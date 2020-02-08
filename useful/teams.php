@@ -1,7 +1,11 @@
 <?php include '../database/connection.php' ?>
 <?php
-
-  $query = 'SELECT * FROM teams';
+  if ($class == 'fsc') {
+    $class2 = 'CV';
+  } else {
+    $class2 = 'EV';
+  }
+  $query = "SELECT * FROM teams WHERE class = '$class2'";
   $result = mysqli_query($date, $query);
 
 ?>

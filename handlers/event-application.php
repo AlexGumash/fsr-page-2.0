@@ -13,7 +13,7 @@
       die(mysqli_error($date));
     }
 
-    header('Location: ../pages/team.php');
+    header('Location: ../pages/myteam.php');
   }
 
 ?>

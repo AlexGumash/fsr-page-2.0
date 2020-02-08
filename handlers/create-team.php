@@ -39,7 +39,7 @@
     if (!$result) {
       echo mysqli_error($date);
     }
-    header('Location: ../index.php');
+    header('Location: ../pages/myteam.php');
   }
 
 ?>

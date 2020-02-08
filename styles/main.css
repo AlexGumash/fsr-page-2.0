@@ -6,6 +6,7 @@
 @import 'account.css';
 @import 'groups.css';
 @import 'team.css';
+@import 'admin.css';
 
 body {
   width: 100%;

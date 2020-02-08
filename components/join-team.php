@@ -1,6 +1,7 @@
 <?php include '../database/connection.php' ?>
 <?php
   session_start();
+  $class = $_REQUEST['class'];
   // $login = $_SESSION['login'];
   // $query = "SELECT * FROM teams";
   // $result = mysqli_query($date, $query);

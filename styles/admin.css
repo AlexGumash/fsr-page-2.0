@@ -1,0 +1,39 @@
+.admin-container {
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.admin-header {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.admin-menu-item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 3px 7px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.application {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.application-header {
+  margin-bottom: 10px;
+}

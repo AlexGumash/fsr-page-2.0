@@ -53,7 +53,7 @@
             <?php
               if ($user['teamid'] != 0) {
                 ?>
-                <a href="../pages/team.php">
+                <a href="../pages/myteam.php">
                   <div class="account-menu-item-team">
                     <span>My team</span>
                   </div>

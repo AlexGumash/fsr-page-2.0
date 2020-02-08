@@ -1,6 +1,7 @@
 <?php
   include '../useful/counties.php';
   include '../useful/unis.php';
+  $class = $_REQUEST['class'];
 ?>
 
 <div class="create-team">
@@ -15,12 +16,16 @@
         <input type="text" name="name" value="" required>
       </div>
       <div class="form-div">
-        <span>Class:</span>
+        <span>Class:<span class="required-field">*</span></span>
         <div class="">
           <span>CV</span>
-          <input type="radio" name="class" value="CV" checked>
+          <input type="radio" name="class" value="CV" disabled <?php if ($class == 'fsc') {
+            echo 'checked';
+          } ?>>
           <span>EV</span>
-          <input type="radio" name="class" value="EV">
+          <input type="radio" name="class" value="EV" disabled <?php if ($class == 'fse') {
+            echo 'checked';
+          } ?>>
         </div>
       </div>
       <div class="form-div">

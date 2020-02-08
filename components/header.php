@@ -73,7 +73,7 @@
           </a>
         </div>
       </li>
-      <li class="menu-item" style="margin-right:0">
+      <li class="menu-item" <?php if ($_SESSION['rights'] != 'admin') {echo "style='margin-right:0'";} ?>>
         <div class="">
           <a href="#" class="menu-link">
             <div class="list-item">
@@ -84,6 +84,23 @@
           </a>
         </div>
       </li>
+      <?php
+        if ($_SESSION['rights'] == 'admin') {
+          ?>
+            <li class="menu-item" style="margin-right:0">
+              <div class="">
+                <a href="../admin/admin.php" class="menu-link">
+                  <div class="list-item">
+                    <span>
+                      Admin
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          <?php
+        }
+      ?>
     </ul>
   </div>
 </div>

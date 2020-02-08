@@ -25,9 +25,11 @@
             </div>
             <?php
           } elseif (($value == 'FSC team member' || $value == 'FSE team member')) {
+            $class = explode(" ", $value);
+            $class = strtolower($class[0]);
             ?>
             <div class="group">
-              <a class="group-link" href="group-team.php"><?php echo $value; ?></a>
+              <a class="group-link" href="group-team.php?class=<?php echo $class; ?>"><?php echo $value; ?></a>
               <span class="group-conf">You can join an existing team or create new team</span>
             </div>
             <?php

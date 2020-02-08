@@ -17,6 +17,7 @@ if (isset($_REQUEST['login-submit'])) {
   $id = $user['id'];
   $_SESSION['login'] = $login;
   $_SESSION['id'] = $id;
+  $_SESSION['rights'] = $user['group'];
   // $_SESSION['rights'] = $user['rights'];
   header('Location: ../index.php');
 }
