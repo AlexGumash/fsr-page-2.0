@@ -29,6 +29,11 @@
       <div class="middle">
         <div class="team-container">
           <div class="team-header">
+            <a href="account.php">
+              <div class="back-to-account">
+                <span>&#8592;</span>
+              </div>
+            </a>
             <span>Team account</span>
           </div>
 
@@ -36,18 +41,24 @@
             <div class="team-menu-item" data_target='../components/team-info.php'>
               <span>Overview</span>
             </div>
+            <div class="team-menu-item" data_target='../components/team-edit.php'>
+              <span>Edit Data</span>
+            </div>
             <div class="team-menu-item" data_target='../components/team-members.php'>
               <span>Members</span>
             </div>
             <div class="team-menu-item" data_target='../components/team-events.php'>
               <span>Events</span>
             </div>
-            <!-- <div class="account-menu-item" data_target='../components/change-password.php'>
-              <span>Change Password</span>
-            </div>
-            <div class="account-menu-item" data_target='../components/user-groups.php'>
-              <span>User Groups</span>
-            </div> -->
+            <?php
+              if ($_SESSION['id'] == $team['captain']) {
+                ?>
+                  <div class="team-menu-item" data_target='../components/team-join-apps.php?teamid=<?php echo $team['id']; ?>'>
+                    <span>Applications</span>
+                  </div>
+                <?php
+              }
+            ?>
 
           </div>
 
@@ -55,15 +66,8 @@
             <?php include '../components/team-info.php' ?>
 
           </div>
-          <!-- <div class="account-field">
-            <span>Your certificates:</span>
-            <span>certificates</span>
-          </div> -->
         </div>
       </div>
-      <!-- <div class="footer headerFooter">
-        footer
-      </div> -->
     </div>
   </body>
 </html>

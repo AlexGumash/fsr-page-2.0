@@ -18,7 +18,7 @@
     $address = $_REQUEST['address'];
     $class = $_REQUEST['class'];
 
-    $query = "INSERT INTO teams VALUES (NULL, '$captain', '$uni', '$name', '$homepage', '$email', '$phone', '$country', '$address', '$class')";
+    $query = "INSERT INTO teams VALUES (NULL, '$captain', '$uni', '$name', '$homepage', '$email', '$phone', '$country', '$address', '$class', '')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));
@@ -27,8 +27,14 @@
     $query = "SELECT * FROM teams WHERE name = '$name'";
     $result = mysqli_query($date, $query);
     $team = mysqli_fetch_array($result, MYSQL_ASSOC);
-
     $teamid = $team['id'];
+
+    $query = "INSERT INTO `team-media` VALUES (NULL, '$teamid', '', '', '', '')";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die(mysqli_error($date));
+    }
+
     if ($class == 'CV') {
       $group = 'FSC team member';
     } else {
@@ -39,6 +45,13 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+
+    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '', '', 'captain')";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die(mysqli_error($date));
+    }
+
     header('Location: ../pages/myteam.php');
   }
 

@@ -1,10 +1,14 @@
 <?php include '../database/connection.php' ?>
 <?php
   session_start();
-  $login = $_SESSION['login'];
-  $query = "SELECT * FROM users WHERE login = '$login'";
+  $id = $_SESSION['id'];
+  $query = "SELECT * FROM users WHERE id = '$id'";
   $result = mysqli_query($date, $query);
   $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+
+  $query = "SELECT * FROM `user-team-info` WHERE userid = '$id'";
+  $result = mysqli_query($date, $query);
+  $userinfo = mysqli_fetch_array($result, MYSQL_ASSOC);
 ?>
 <div class="info">
   <div class="info-text">
@@ -24,6 +28,12 @@
       <span class="label">User Group:</span>
       <div class="cont">
         <span><?php echo $user['group'] ?></span>
+      </div>
+    </div>
+    <div class="account-field-info">
+      <span class="label">Role:</span>
+      <div class="cont">
+        <span><?php echo $userinfo['position'] ?></span>
       </div>
     </div>
   </div>

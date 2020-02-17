@@ -41,7 +41,15 @@
 .join-create {
   padding-top: 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.back-link {
+  margin-top: 10px;
+  text-decoration: underline;
+  font-size: 80%;
 }
 
 .join-create-option {
@@ -64,6 +72,8 @@
 
 .choose-team {
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .choose-team-notification {

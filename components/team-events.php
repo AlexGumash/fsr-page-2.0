@@ -54,9 +54,13 @@
         <div class="event-registration-form">
           <div class="event-registration-number">
             <span>
-              If so, please select your car number:
+              If so, please select your car number:<span class="required-field">*</span>
             </span>
-            <input type="text" name="car-number" value="" placeholder="from xx to xxx">
+            <input type="text" name="car-number" value="" placeholder="from xx to xxx" required>
+          </div>
+          <div class="rules-check">
+            <span>As representative of the team I confirm that my team read the rules of the event<span class="required-field">*</span></span>
+            <input type="checkbox" name="rules" value="checked" required>
           </div>
           <div class="submit-button">
             <input type="submit" name="event-registration-submit" value="Send request">

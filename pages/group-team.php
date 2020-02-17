@@ -31,6 +31,7 @@
               <span class="join-create-option" data_target="../components/create-team.php?class=<?php echo $class; ?>">create a new team</span>
               ?
             </span>
+            <span class="back-link"><a href="account.php">Back to account</a></span>
           </div>
         </div>
       </div>

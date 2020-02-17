@@ -14,12 +14,12 @@
       To join the team send the request. Wait for confirmation by a team member. After confirmation, you will become a member of the team.
     </span>
   </div>
-  <form class="" action="index.html" method="post">
+  <form class="" action="../handlers/join-team.php" method="post">
     <div class="choose-team-form">
       <span>Choose your team:</span>
       <input type="text" name="team" value="" list="teams" class="choose-team-input">
     </div>
     <input type="submit" name="choose-team-submit" value="Send request">
   </form>
-
+  <span class="back-link"><a href="account.php">Back</a></span>
 </div>

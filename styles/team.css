@@ -7,6 +7,16 @@
 .team-header {
   font-size: 20px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.back-to-account {
+  font-size: 14px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
 .team-menu {
@@ -64,6 +74,12 @@
 }
 
 .event-registration-number {
+  margin-bottom: 10px;
+}
+
+.rules-check {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 

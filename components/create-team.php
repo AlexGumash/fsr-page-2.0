@@ -19,12 +19,16 @@
         <span>Class:<span class="required-field">*</span></span>
         <div class="">
           <span>CV</span>
-          <input type="radio" name="class" value="CV" disabled <?php if ($class == 'fsc') {
+          <input type="radio" name="class" value="CV" <?php if ($class == 'fsc') {
             echo 'checked';
+          } else {
+            echo "disabled";
           } ?>>
           <span>EV</span>
-          <input type="radio" name="class" value="EV" disabled <?php if ($class == 'fse') {
+          <input type="radio" name="class" value="EV" <?php if ($class == 'fse') {
             echo 'checked';
+          } else {
+            echo "disabled";
           } ?>>
         </div>
       </div>
