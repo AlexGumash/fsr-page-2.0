@@ -34,6 +34,20 @@
   cursor: pointer;
 }
 
+.account-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-column {
+  margin-right: 30px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .info {
   display: flex;
   flex-direction: row;

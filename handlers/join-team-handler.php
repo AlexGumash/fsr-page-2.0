@@ -28,8 +28,8 @@
     if (!$result) {
       echo mysqli_error($date);
     }
-
-    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '', '', 'Team member')";
+    $entryyear = date("Y");
+    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '$entryyear', '', 'Team member')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));
