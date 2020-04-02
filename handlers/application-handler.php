@@ -6,7 +6,7 @@
 
   $query = "SELECT * FROM `event-application` WHERE id = '$appid'";
   $result = mysqli_query($date, $query);
-  $application = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $application = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   if ($status == 'accepted') {
     $teamid = $application['teamid'];

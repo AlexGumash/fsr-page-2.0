@@ -6,7 +6,7 @@
 
   $query = "SELECT * FROM `join-team-app` WHERE id = '$appid'";
   $result = mysqli_query($date, $query);
-  $application = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $application = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   if ($status == 'accepted') {
     $teamid = $application['teamid'];
@@ -14,7 +14,7 @@
 
     $query = "SELECT * FROM teams WHERE id = '$teamid'";
     $result = mysqli_query($date, $query);
-    $team = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $uni = $team['uni'];
 
     if ($team['class'] == 'CV') {

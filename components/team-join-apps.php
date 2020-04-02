@@ -20,13 +20,13 @@
 <div class="applications">
   <div class="applications-list">
     <?php
-      while ($application = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+      while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         // $teamid = $application['teamid'];
         $userid = $application['userid'];
 
         $query = "SELECT * FROM users WHERE id = '$userid'";
         $result2 = mysqli_query($date, $query);
-        $user = mysqli_fetch_array($result2, MYSQL_ASSOC);
+        $user = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 
         // $query = "SELECT * FROM events WHERE id = '$eventid'";
         // $result3 = mysqli_query($date, $query);

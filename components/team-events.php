@@ -4,21 +4,21 @@
   $login = $_SESSION['login'];
   $query = "SELECT * FROM users WHERE login = '$login'";
   $result = mysqli_query($date, $query);
-  $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $teamid = $user['teamid'];
 
   // $id = $_SESSION['id'];
   $query = "SELECT * FROM teams WHERE id = '$teamid'";
   $result = mysqli_query($date, $query);
-  $team = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   $query = "SELECT * FROM events WHERE status = 'coming'";
   $result = mysqli_query($date, $query);
-  $event = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $event = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   $query = "SELECT * FROM `event-application` WHERE teamid = '$teamid'";
   $result = mysqli_query($date, $query);
-  $application = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $application = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 
 <?php
@@ -34,7 +34,7 @@
 <?php
   $query = "SELECT * FROM `event-participants` WHERE teamid = '$teamid'";
   $result = mysqli_query($date, $query);
-  $participation = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $participation = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   if (!$participation && !$application) {
     ?>

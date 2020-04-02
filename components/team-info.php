@@ -4,13 +4,13 @@
   $login = $_SESSION['login'];
   $query = "SELECT * FROM users WHERE login = '$login'";
   $result = mysqli_query($date, $query);
-  $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $teamid = $user['teamid'];
 
   // $id = $_SESSION['id'];
   $query = "SELECT * FROM teams WHERE id = '$teamid'";
   $result = mysqli_query($date, $query);
-  $team = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <div class="info">
   <div class="info-text">

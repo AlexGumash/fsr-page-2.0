@@ -5,7 +5,7 @@
     $login = $_SESSION['login'];
     $query = "SELECT * FROM users WHERE login = '$login'";
     $result = mysqli_query($date, $query);
-    $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $userid = $user['id'];
 
     $captain = $user['id'];
@@ -26,7 +26,7 @@
 
     $query = "SELECT * FROM teams WHERE name = '$name'";
     $result = mysqli_query($date, $query);
-    $team = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $teamid = $team['id'];
 
     $query = "INSERT INTO `team-media` VALUES (NULL, '$teamid', '', '', '', '')";

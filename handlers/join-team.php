@@ -8,7 +8,7 @@
 
     $query = "SELECT * FROM teams WHERE name = '$teamname'";
     $result = mysqli_query($date, $query);
-    $team = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     $teamid = $team['id'];
     $userid = $_SESSION['id'];

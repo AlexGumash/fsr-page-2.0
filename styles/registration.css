@@ -8,3 +8,17 @@
   display: flex;
   justify-content: center;
 }
+
+.message_error {
+  color: red;
+  font-size: 12;
+}
+
+.form-div-error {
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  font-size: 12;
+  align-items: center;
+  margin-bottom: 10px;
+}

@@ -8,18 +8,18 @@
 <div class="applications">
   <div class="applications-list">
     <?php
-      while ($application = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+      while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $teamid = $application['teamid'];
         $eventid = $application['eventid'];
         $number = $application['number'];
 
         $query = "SELECT * FROM teams WHERE id = '$teamid'";
         $result2 = mysqli_query($date, $query);
-        $team = mysqli_fetch_array($result2, MYSQL_ASSOC);
+        $team = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 
         $query = "SELECT * FROM events WHERE id = '$eventid'";
         $result3 = mysqli_query($date, $query);
-        $event = mysqli_fetch_array($result3, MYSQL_ASSOC);
+        $event = mysqli_fetch_array($result3, MYSQLI_ASSOC);
         ?>
 
         <div class="application">

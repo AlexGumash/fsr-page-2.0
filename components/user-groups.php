@@ -5,7 +5,7 @@
   $login = $_SESSION['login'];
   $query = "SELECT * FROM users WHERE login = '$login'";
   $result = mysqli_query($date, $query);
-  $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <div class="groups-container">
   <div class="current-group">

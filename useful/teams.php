@@ -13,7 +13,7 @@
 <datalist id="teams">
   <?php
 
-    while ($team = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+    while ($team = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
       ?>
       <option value="<?php echo $team['name']; ?>">
       <?php

@@ -7,11 +7,11 @@
   $id = $_SESSION['id'];
   $query = "SELECT * FROM users WHERE id = '$id'";
   $result = mysqli_query($date, $query);
-  $user = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   $query = "SELECT * FROM `user-team-info` WHERE userid = '$id'";
   $result = mysqli_query($date, $query);
-  $userinfo = mysqli_fetch_array($result, MYSQL_ASSOC);
+  $userinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <form action="../handlers/account-edit.php" method="post" enctype="multipart/form-data">
   <div class="account-info">
