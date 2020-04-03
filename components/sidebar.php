@@ -40,6 +40,9 @@
               <span>Password: </span>
               <input type="password" name="password" value="" class="form-input">
             </div>
+            <div class="forgot-password">
+              <a href="../pages/password-recovery.php" style="color: rgb(125, 125, 125)">Forgot password?</a>
+            </div>
             <input type="submit" name="login-submit" value="Submit" class="login-submit">
           </div>
         </form>

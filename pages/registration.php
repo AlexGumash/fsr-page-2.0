@@ -41,9 +41,9 @@
                 data: {emailToCheck: mail.val()}
               }).done(function(result){
                 if (result != '') {
-                  $('#valid_confirm_email').html(result)
+                  $('#valid_email_message').html(result)
                 } else {
-                  $('#valid_confirm_email').html('')
+                  $('#valid_email_message').html('')
                   $('input[type=submit]').attr('disabled', false);
 
                 }
@@ -79,7 +79,7 @@
               $('#valid_confirm_password_message').text('');
           }
 
-      });
+        });
 
       })
     </script>
@@ -145,9 +145,6 @@
             </div>
             <div class="form-div-error">
               <span id="valid_email_message"></span>
-            </div>
-            <div class="form-div-error">
-              <span id="valid_confirm_email"></span>
             </div>
             <div class="submit-div">
               <input type="submit" name="submit-create-account" value="Create account">

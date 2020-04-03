@@ -10,7 +10,7 @@ if (isset($_REQUEST['login-submit'])) {
   $result = mysqli_query($date, $query);
   $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
   if (!$user) {
-    die("Неправильный логин или пароль");
+    die("Wrong login or password!");
   }
 
   $id = $user['id'];

@@ -70,3 +70,11 @@
 .sponsors {
   border-bottom: 1px solid grey;
 }
+
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(129, 129, 129);
+  font-size: 12px;
+  padding-bottom: 10px;
+}
