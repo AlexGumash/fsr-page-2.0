@@ -20,6 +20,79 @@
     <title>FSR</title>
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" src='../scripts/ajax.js'></script>
+    <script type="text/javascript">
+      // $(document).ready(function() {
+        // function readURL(input) {
+        //   if (input.files && input.files[0]) {
+        //     var reader = new FileReader();
+        //     reader.onload = function (e) {
+        //       $('#preview').attr('src', e.target.result);
+        //     };
+        //     reader.readAsDataURL(input.files[0]);
+        //   }
+        // }
+
+        // function checkPhone() {
+        //   var phone = $("input[name='phone']");
+        //   if (phone.val() != 0) {
+        //     $('input[type=submit]').attr('disabled', true);
+        //     var pattern = /\+\[a-zA-Z]+/;
+        //     if (phone.val().search(pattern) != 0) {
+        //       $('#valid_confirm_phone').html('')
+        //       $('input[type=submit]').attr('disabled', false);
+        //     } else {
+        //       $('#valid_confirm_phone').html("Phone must start with + and code country.")
+        //       $('input[type=submit]').attr('disabled', true);
+        //     }
+        //   }
+        // }
+
+        function checkEmail() {
+          var mail = $("input[name='email']")
+          var pattern = /^[a-z0-9][a-z0-9\._-]*[a-z0-9]*@([a-z0-9]+([a-z0-9-]*[a-z0-9]+)*\.)+[a-z]+/i;
+
+          $('input[type=submit]').attr('disabled', true);
+          $('#valid_confirm_email').html("Please wait...")
+          if(mail.val().search(pattern) == 0){
+            $.ajax({
+              type: "post",
+              url: "../handlers/check-team-email.php",
+              data: {emailToCheck: mail.val()}
+            }).done(function(result){
+              if (result != '') {
+                $('#valid_confirm_email').html(result)
+                $('input[type=submit]').attr('disabled', true);
+              } else {
+                $('#valid_confirm_email').html('')
+                $('input[type=submit]').attr('disabled', false);
+              }
+            })
+          } else {
+            $('#valid_confirm_email').text('Uncorrect email!');
+            $('input[type=submit]').attr('disabled', true);
+          }
+
+        }
+
+
+        // $('input[name=login]').blur(function(){
+        //   var login = $("input[name='login']").val()
+        //   $('input[type=submit]').attr('disabled', true);
+        //   $.ajax({
+        //     type: "post",
+        //     url: "../handlers/check-login.php",
+        //     data: {loginToCheck: login}
+        //   }).done(function(result){
+        //     if (result != '') {
+        //       $('#valid_confirm_login').html(result)
+        //     } else {
+        //       $('#valid_confirm_login').html('')
+        //       $('input[type=submit]').attr('disabled', false);
+        //     }
+        //   })
+        // })
+      // })
+    </script>
   </head>
   <body>
     <div class="container">

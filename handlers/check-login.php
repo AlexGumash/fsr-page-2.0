@@ -3,6 +3,9 @@
   include '../database/connection.php';
 
   $login = $_REQUEST['loginToCheck'];
+  if ($login == $_SESSION['login']) {
+    die();
+  }
 
   $query = "SELECT login FROM users WHERE login = '$login'";
   $result = mysqli_query($date, $query);

@@ -18,6 +18,7 @@ if (isset($_REQUEST['login-submit'])) {
     $_SESSION['login'] = $login;
     $_SESSION['id'] = $id;
     $_SESSION['rights'] = $user['group'];
+    $_SESSION['email'] = $user['email'];
   } else {
     die("Please verify your email");
   }
@@ -28,11 +29,13 @@ if (isset($_REQUEST['login-submit'])) {
 if (isset($_REQUEST['logout'])) {
   $_SESSION['login'] = '';
   $_SESSION['id'] = '';
-  // $_SESSION['rights'] = '';
+  $_SESSION['rights'] = '';
+  $_SESSION['email'] = '';
 
   unset($_SESSION['login']);
   unset($_SESSION['id']);
-  // unset($_SESSION['rights']);
+  unset($_SESSION['rights']);
+  unset($_SESSION['email']);
 
   header('Location: ../index.php');
 }

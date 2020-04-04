@@ -7,7 +7,7 @@
     $result = mysqli_query($date, $query);
     $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $userid = $user['id'];
-
+    $captainemail = $_SESSION['email'];
     $captain = $user['id'];
     $uni = $_REQUEST['uni'];
     $name = $_REQUEST['name'];
@@ -46,11 +46,18 @@
       echo mysqli_error($date);
     }
 
-    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '', '', 'captain')";
+    $entryyear = date("Y");
+
+    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '$entryyear', '', 'captain')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));
     }
+
+    $subject = "Formula Student Russia";
+    $message = 'You have just create team on Formula Student Russia Website. <br/> You are captain of the team <br/>';
+    $headers = "Content-type: text/html";
+    mail($captainemail, $subject, $message, $headers);
 
     header('Location: ../pages/myteam.php');
   }

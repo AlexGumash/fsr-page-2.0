@@ -72,8 +72,11 @@
     <div class="account-field-info">
       <span class="label">Email:</span>
       <div class="cont">
-        <input type="email" name="email" value="<?php echo $team['email'] ?>">
+        <input type="email" name="email" value="<?php echo $team['email'] ?>" onchange="checkEmail()">
       </div>
+    </div>
+    <div class="form-div-error">
+      <span id="valid_confirm_email"></span>
     </div>
     <div class="account-field-info">
       <span class="label">Phone:</span>
@@ -81,6 +84,9 @@
         <input type="phone" name="phone" value="<?php echo $team['phone'] ?>">
       </div>
     </div>
+    <!-- <div class="form-div-error">
+      <span id="valid_confirm_phone"></span>
+    </div> -->
     <div class="account-field-info">
       <span class="label">Facebook:</span>
       <div class="cont">

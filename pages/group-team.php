@@ -15,6 +15,35 @@
     <title>FSR</title>
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" src='../scripts/ajax.js'></script>
+    <script type="text/javascript">
+
+      function checkEmail(){
+        var pattern = /^[a-z0-9][a-z0-9\._-]*[a-z0-9]*@([a-z0-9]+([a-z0-9-]*[a-z0-9]+)*\.)+[a-z]+/i;
+        var mail = $('input[name=email]');
+        $('input[type=submit]').attr('disabled', true);
+        if(mail.val().search(pattern) == 0){
+            $('#valid_email_message').text('');
+            $('input[type=submit]').attr('disabled', true);
+            $.ajax({
+              type: "post",
+              url: "../handlers/check-team-email.php",
+              data: {emailToCheck: mail.val()}
+            }).done(function(result){
+              if (result != '') {
+                $('#valid_email_message').html(result)
+              } else {
+                $('#valid_email_message').html('')
+                $('input[type=submit]').attr('disabled', false);
+
+              }
+            })
+        }else{
+            $('#valid_email_message').text('Uncorrect email!');
+            $('input[type=submit]').attr('disabled', true);
+        }
+
+      };
+    </script>
   </head>
   <body>
     <div class="container">

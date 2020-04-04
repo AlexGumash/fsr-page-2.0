@@ -11,6 +11,7 @@
 
   $oldPassword = $_REQUEST['old-password'];
   $newPassword = $_REQUEST['new-password'];
+  $newPasswordCopy = $newPassword;
   $oldPassword = hash("md5", $oldPassword);
   $newPassword = hash("md5", $newPassword);
 
@@ -22,6 +23,10 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    $subject = "Formula Student Russia Website Password Change";
+    $message = 'New password was set to your account!<br/> Your login: '.$user['login'].'<br/>Your new password: '.$newPasswordCopy;
+    $headers = "Content-type: text/html";
+    mail($user['email'], $subject, $message, $headers);
   }
 
   header('Location: ../pages/account.php');

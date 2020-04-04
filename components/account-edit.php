@@ -23,8 +23,11 @@
               <span class="label">Username:</span>
             </div>
             <div class="cont">
-              <input type="text" name="login" value="<?php echo $user['login'] ?>">
+              <input type="text" name="login" value="<?php echo $user['login'] ?>" onchange="checkLogin();">
             </div>
+          </div>
+          <div class="form-div-error">
+            <span id="valid_confirm_login"></span>
           </div>
           <div class="account-field-info">
             <div class="label-container">
@@ -59,10 +62,13 @@
               <span class="label">Email:</span>
             </div>
             <div class="cont">
-              <input type="email" name="email" value="<?php echo $user['email'] ?>">
+              <input type="email" name="email" value="<?php echo $user['email'] ?>" onchange="checkEmail();">
             </div>
           </div>
-          <div class="account-field-info" style="margin-bottom: 0">
+          <div class="form-div-error">
+            <span id="valid_confirm_email"></span>
+          </div>
+          <div class="account-field-info">
             <div class="label-container">
               <span class="label">Phone:</span>
             </div>
@@ -70,6 +76,9 @@
               <input type="tel" name="phone" value="<?php echo $user['phone'] ?>">
             </div>
           </div>
+          <!-- <div class="form-div-error">
+            <span id="valid_confirm_phone"></span>
+          </div> -->
         </div>
       </div>
       <div class="account-field">

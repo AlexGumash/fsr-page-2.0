@@ -42,7 +42,10 @@
       </div> -->
       <div class="form-div">
         <span>Email:<span class="required-field">*</span></span>
-        <input type="email" name="email" value="" required>
+        <input type="email" name="email" value="" required onchange="checkEmail()">
+      </div>
+      <div class="form-div-error">
+        <span id="valid_email_message"></span>
       </div>
       <div class="form-div">
         <span>Phone:<span class="required-field">*</span></span>
