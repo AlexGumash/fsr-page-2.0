@@ -48,7 +48,7 @@
 
     $entryyear = date("Y");
 
-    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '$entryyear', '', 'captain')";
+    $query = "INSERT INTO `user-team-info` VALUES (NULL, '$userid', '$uni', '', '', '$entryyear', '', 'Captain')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));

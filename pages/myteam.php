@@ -2,7 +2,8 @@
 <?php
   session_start();
   $login = $_SESSION['login'];
-  $query = "SELECT * FROM users WHERE login = '$login'";
+  $userid = $_SESSION['id'];
+  $query = "SELECT * FROM users WHERE id = '$userid'";
   $result = mysqli_query($date, $query);
   $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $teamid = $user['teamid'];
@@ -124,7 +125,7 @@
               <span>Events</span>
             </div>
             <?php
-              if ($_SESSION['id'] == $team['captain']) {
+              if ($_SESSION['id'] == $team['Captain']) {
                 ?>
                   <div class="team-menu-item" data_target='../components/team-join-apps.php?teamid=<?php echo $team['id']; ?>'>
                     <span>Applications</span>

@@ -25,6 +25,12 @@
     }
   }
 
+  $email = $confirm_user['email'];
+  $subject = "Formula Student Russia Website Registration";
+  $message = 'Your account has been just activated.';
+  $headers = "Content-type: text/html";
+  mail($email, $subject, $message, $headers);
+
   unset($_SESSION['email-conf']);
   header('Location: ../index.php');
 ?>

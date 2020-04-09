@@ -42,6 +42,10 @@
   margin-bottom: 10px;
 }
 
+.list-header-item {
+  width: 33%;
+}
+
 .member-list {
   display: flex;
   flex-direction: column;
@@ -88,4 +92,56 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.role-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.position {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.member-item {
+  width: 33%;
+}
+
+.edit-positions {
+  font-weight: normal;
+  font-size: 13px;
+  margin-right: 5px;
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+.position-name {
+  width: 50%;
+}
+
+.position-contenders {
+  width: 50%;
+}
+
+.position-contender {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.position-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(92, 92, 92);
+  margin-bottom: 10px;
+}
+
+.surname {
+  margin-right: 15px;
 }
