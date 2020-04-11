@@ -22,16 +22,6 @@
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" src='../scripts/ajax.js'></script>
     <script type="text/javascript">
-      // $(document).ready(function() {
-        // function readURL(input) {
-        //   if (input.files && input.files[0]) {
-        //     var reader = new FileReader();
-        //     reader.onload = function (e) {
-        //       $('#preview').attr('src', e.target.result);
-        //     };
-        //     reader.readAsDataURL(input.files[0]);
-        //   }
-        // }
 
         // function checkPhone() {
         //   var phone = $("input[name='phone']");
@@ -75,24 +65,6 @@
 
         }
 
-
-        // $('input[name=login]').blur(function(){
-        //   var login = $("input[name='login']").val()
-        //   $('input[type=submit]').attr('disabled', true);
-        //   $.ajax({
-        //     type: "post",
-        //     url: "../handlers/check-login.php",
-        //     data: {loginToCheck: login}
-        //   }).done(function(result){
-        //     if (result != '') {
-        //       $('#valid_confirm_login').html(result)
-        //     } else {
-        //       $('#valid_confirm_login').html('')
-        //       $('input[type=submit]').attr('disabled', false);
-        //     }
-        //   })
-        // })
-      // })
     </script>
   </head>
   <body>

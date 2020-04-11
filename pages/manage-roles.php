@@ -28,7 +28,7 @@
       <div class="middle">
         <div class="team-container">
           <div class="team-header">
-            <a href="account.php">
+            <a href="myteam.php">
               <div class="back-to-account">
                 <span>&#8592;</span>
               </div>
@@ -38,121 +38,156 @@
 
           <div id="team-content">
             <?php
-              if ($user['position'] != 'Captain') {
+              if ($user['captain'] != 'Captain') {
                 ?>
                 <span>Only team captain can change team roles!</span>
                 <?php
               } else {
             ?>
             <div class="positions-list">
-              <div class="position-list-item">
-                <div class="position-name">
-                  <span>Team captain</span>
-                </div>
-                <div class="position-contenders">
-                  <?php
-                  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE teamid = '$teamid'";
-                  $result = mysqli_query($date, $query);
-                  while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    if (($member['position'] != 'Team captain deputy') && ($member['position'] != 'Faculty advisor') && ($member['position'] != 'Captain')) {
-                      ?>
-                      <div class="position-contender">
-                        <input type="radio" name="captain" value="<?php echo $member['id']; ?>">
-                        <div class="firstname">
-                          <span><?php echo $member['firstname']; ?></span>
-                        </div>
-                        <div class="surname">
-                          <span><?php echo $member['lastname']; ?></span>
-                        </div>
+              <form class="" action="../handlers/set-roles/set-captain.php" method="post">
+                <div class="position-list-item">
+                  <div class="position-name">
+                    <span>Team captain</span>
+                  </div>
+                  <div class="position-contenders">
+                      <div class="position-contenders-list">
+                        <?php
+                        $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.teamid = '$teamid'";
+                        $result = mysqli_query($date, $query);
+                        while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                          if (($member['deputy'] != 'Team captain deputy') && ($member['advisor'] != 'Faculty advisor')) {
+                            ?>
+                            <div class="position-contender">
+                              <input type="radio" name="captain" value="<?php echo $member['id']; ?>" <?php if ($member['captain'] == 'Captain') {
+                                echo "checked";
+                              } ?>>
+                              <div class="firstname">
+                                <span><?php echo $member['firstname']; ?></span>
+                              </div>
+                              <div class="surname">
+                                <span><?php echo $member['lastname']; ?></span>
+                              </div>
+                            </div>
+                            <?php
+                          }
+                        }
+                        ?>
                       </div>
-                      <?php
-                    }
-                  }
-                  ?>
-                </div>
-              </div>
-
-              <div class="position-list-item">
-                <div class="position-name">
-                  <span>Team captain deputy</span>
-                </div>
-                <div class="position-contenders">
-                  <?php
-                  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE teamid = '$teamid'";
-                  $result = mysqli_query($date, $query);
-                  while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    if (($member['position'] != 'Team captain deputy') && ($member['position'] != 'Faculty advisor') && ($member['position'] != 'Captain')) {
-                      ?>
-                      <div class="position-contender">
-                        <input type="checkbox" name="deputy" value="<?php echo $member['id']; ?>">
-                        <div class="firstname">
-                          <span><?php echo $member['firstname']; ?></span>
-                        </div>
-                        <div class="surname">
-                          <span><?php echo $member['lastname']; ?></span>
-                        </div>
+                      <div class="">
+                        <input type="submit" name="captain-submit" value="Submit">
                       </div>
-                      <?php
-                    }
-                  }
-                  ?>
+                  </div>
                 </div>
-              </div>
+              </form>
 
-              <div class="position-list-item">
-                <div class="position-name">
-                  <span>Pilots</span>
-                </div>
-                <div class="position-contenders">
-                  <?php
-                  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE teamid = '$teamid'";
-                  $result = mysqli_query($date, $query);
-                  while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    if (($member['position'] == 'Team captain deputy') || ($member['position'] == 'Captain') || ($member['position'] == 'Team member')) {
+              <form class="" action="../handlers/set-roles/set-deputy.php" method="post">
+                <div class="position-list-item">
+                  <div class="position-name">
+                    <span>Team captain deputy</span>
+                  </div>
+                  <div class="position-contenders">
+                    <div class="position-contenders-list">
+                      <?php
+                      $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.teamid = '$teamid'";
+                      $result = mysqli_query($date, $query);
+                      while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        if (($member['captain'] != 'Captain') && ($member['advisor'] != 'Faculty advisor')) {
+                          ?>
+                          <div class="position-contender">
+                            <input type="checkbox" name="deputy[]" value="<?php echo $member['id']; ?>" <?php if ($member['deputy'] == 'Team captain deputy') {
+                              echo "checked";
+                            } ?>>
+                            <div class="firstname">
+                              <span><?php echo $member['firstname']; ?></span>
+                            </div>
+                            <div class="surname">
+                              <span><?php echo $member['lastname']; ?></span>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                      }
                       ?>
-                      <div class="position-contender">
-                        <input type="checkbox" name="pilots" value="<?php echo $member['id']; ?>">
-                        <div class="firstname">
-                          <span><?php echo $member['firstname']; ?></span>
-                        </div>
-                        <div class="surname">
-                          <span><?php echo $member['lastname']; ?></span>
-                        </div>
-                      </div>
-                      <?php
-                    }
-                  }
-                  ?>
+                    </div>
+                    <div class="">
+                      <input type="submit" name="deputy-submit" value="Submit">
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
 
-              <div class="position-list-item">
-                <div class="position-name">
-                  <span>ESO</span>
-                </div>
-                <div class="position-contenders">
-                  <?php
-                  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE teamid = '$teamid'";
-                  $result = mysqli_query($date, $query);
-                  while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    if (($member['position'] == 'Team captain deputy') || ($member['position'] == 'Captain') || ($member['position'] == 'Team member')) {
+              <form class="" action="../handlers/set-roles/set-pilots.php" method="post">
+                <div class="position-list-item">
+                  <div class="position-name">
+                    <span>Pilots</span>
+                  </div>
+                  <div class="position-contenders">
+                    <div class="position-contenders-list">
+                      <?php
+                      $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.teamid = '$teamid'";
+                      $result = mysqli_query($date, $query);
+                      while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        if (($member['eso'] != 'ESO') && ($member['advisor'] != 'Faculty advisor')) {
+                          ?>
+                          <div class="position-contender">
+                            <input type="checkbox" name="pilots[]" value="<?php echo $member['id']; ?>" <?php if ($member['pilot'] == 'Pilot') {
+                              echo "checked";
+                            } ?>>
+                            <div class="firstname">
+                              <span><?php echo $member['firstname']; ?></span>
+                            </div>
+                            <div class="surname">
+                              <span><?php echo $member['lastname']; ?></span>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                      }
                       ?>
-                      <div class="position-contender">
-                        <input type="radio" name="ESO" value="<?php echo $member['id']; ?>">
-                        <div class="firstname">
-                          <span><?php echo $member['firstname']; ?></span>
-                        </div>
-                        <div class="surname">
-                          <span><?php echo $member['lastname']; ?></span>
-                        </div>
-                      </div>
-                      <?php
-                    }
-                  }
-                  ?>
+                    </div>
+                    <div class="">
+                      <input type="submit" name="pilots-submit" value="Submit">
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
 
+              <form class="" action="../handlers/set-roles/set-eso.php" method="post">
+                <div class="position-list-item">
+                  <div class="position-name">
+                    <span>ESO</span>
+                  </div>
+                  <div class="position-contenders">
+                    <div class="position-contenders-list">
+                      <?php
+                      $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.teamid = '$teamid'";
+                      $result = mysqli_query($date, $query);
+                      while ($member = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        if (($member['pilot'] != 'Pilot') && ($member['advisor'] != 'Faculty advisor')) {
+                          ?>
+                          <div class="position-contender">
+                            <input type="radio" name="ESO" value="<?php echo $member['id']; ?>" <?php if ($member['eso'] == 'ESO') {
+                              echo "checked";
+                            } ?>>
+                            <div class="firstname">
+                              <span><?php echo $member['firstname']; ?></span>
+                            </div>
+                            <div class="surname">
+                              <span><?php echo $member['lastname']; ?></span>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                      }
+                      ?>
+                    </div>
+                    <div class="">
+                      <input type="submit" name="eso-submit" value="Submit">
+                    </div>
+                  </div>
+                </div>
+              </form>
 
 
 

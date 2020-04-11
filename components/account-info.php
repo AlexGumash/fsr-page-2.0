@@ -166,7 +166,41 @@
             <div class="account-field-info">
               <span class="label">Position:</span>
               <div class="cont">
-                <span><?php echo $userinfo['position'] ?></span>
+                <?php
+                  $position = '';
+                  if ($userinfo['captain'] == 'Captain') {
+                    if ($position != '') {
+                      $position .= ', ';
+                    }
+                    $position .= $userinfo['captain'];
+                  }
+                  if ($userinfo['deputy'] == 'Team captain deputy') {
+                    if ($position != '') {
+                      $position .= ', ';
+                    }
+                    $position .= $userinfo['deputy'];
+                  }
+                  if ($userinfo['pilot'] == 'Pilot') {
+                    if ($position != '') {
+                      $position .= ', ';
+                    }
+                    $position .= $userinfo['pilot'];
+                  }
+                  if ($userinfo['eso'] == 'ESO') {
+                    if ($position != '') {
+                      $position .= ', ';
+                    }
+                    $position .= $userinfo['eso'];
+                  }
+                  if ($userinfo['advisor'] == 'Faculty advisor') {
+                    if ($position != '') {
+                      $position .= ', ';
+                    }
+                    $position .= $userinfo['advisor'];
+                  }
+                  // $position = $userinfo['deputy'].', '.$userinfo['pilot'].', '.$userinfo['eso'].', '.$userinfo['advisor'];
+                ?>
+                <span><?php echo $position ?></span>
               </div>
             </div>
             <div class="account-field-info">
