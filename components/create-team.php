@@ -36,10 +36,6 @@
         <span>Homepage:</span>
         <input type="text" name="homepage" value="">
       </div>
-      <!-- <div class="form-div">
-        <span>Social media:</span>
-        <input type="text" name="media" value="">
-      </div> -->
       <div class="form-div">
         <span>Email:<span class="required-field">*</span></span>
         <input type="email" name="email" value="" required onchange="checkEmail()">

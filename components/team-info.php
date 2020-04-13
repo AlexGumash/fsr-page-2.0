@@ -8,7 +8,7 @@
   $teamid = $user['teamid'];
 
   // $id = $_SESSION['id'];
-  $query = "SELECT * FROM teams WHERE id = '$teamid'";
+  $query = "SELECT * FROM teams JOIN `team-media` ON `teams`.id = `team-media`.teamid WHERE `teams`.id = '$teamid'";
   $result = mysqli_query($date, $query);
   $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
@@ -35,11 +35,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="photo">
-    <div class="account-photo">
-      <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
-    </div>
-  </div> -->
 </div>
 
 <div class="account-field">
@@ -47,7 +42,6 @@
   <div class="postal-text">
     <span><?php echo $team['address'] ?></span>
   </div>
-  <!-- <textarea name="postal" class="postal-text"></textarea> -->
 </div>
 
 <div class="account-field">
@@ -65,5 +59,55 @@
         <span><?php echo $team['phone'] ?></span>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="account-field">
+  <span class="field-label" style="margin-bottom: 10px">Team media:</span>
+  <div class="media-container">
+    <?php
+      if ($team['facebook'] != '') {
+        ?>
+        <div class="media">
+          <a href="<?php echo $team['facebook'] ?>">
+            <img src="../images/facebook.png" alt="facebook logo" class="media-img">
+          </a>
+        </div>
+        <?php
+      }
+    ?>
+    <?php
+      if ($team['instagram'] != '') {
+        ?>
+        <div class="media">
+          <a href="<?php echo $team['instagram'] ?>">
+            <img src="../images/instagram.png" alt="instagram logo" class="media-img">
+          </a>
+        </div>
+        <?php
+      }
+    ?>
+    <?php
+      if ($team['youtube'] != '') {
+        ?>
+        <div class="media">
+          <a href="<?php echo $team['youtube'] ?>">
+            <img src="../images/youtube.png" alt="youtube logo" class="media-img">
+          </a>
+        </div>
+        <?php
+      }
+    ?>
+    <?php
+      if ($team['vk'] != '') {
+        ?>
+        <div class="media">
+          <a href="<?php echo $team['vk'] ?>">
+            <img src="../images/vk.png" alt="vk logo" class="media-img">
+          </a>
+        </div>
+        <?php
+      }
+    ?>
   </div>
 </div>

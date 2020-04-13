@@ -8,7 +8,7 @@
   $teamid = $user['teamid'];
 
   // $id = $_SESSION['id'];
-  $query = "SELECT * FROM teams WHERE id = '$teamid'";
+  $query = "SELECT * FROM teams JOIN `team-media` ON `teams`.id = `team-media`.teamid WHERE `teams`.id = '$teamid'";
   $result = mysqli_query($date, $query);
   $team = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
@@ -53,17 +53,9 @@
   </div> -->
 </div>
 
-<!-- <div class="account-field">
-  <span>Select captain deputies:</span>
-  <select class="" name="deputies">
-
-  </select>
-</div> -->
-
 <div class="account-field">
   <span class="field-label">Address:</span>
   <textarea class="postal-text" name="address"><?php echo $team['address'] ?></textarea>
-  <!-- <textarea name="postal" class="postal-text"></textarea> -->
 </div>
 
 <div class="account-field">
@@ -90,25 +82,25 @@
     <div class="account-field-info">
       <span class="label">Facebook:</span>
       <div class="cont">
-        <input type="text" name="facebook" value="">
+        <input type="text" name="facebook" value=" <?php echo $team['facebook']; ?>">
       </div>
     </div>
     <div class="account-field-info">
       <span class="label">Instagram:</span>
       <div class="cont">
-        <input type="text" name="instagram" value="">
+        <input type="text" name="instagram" value=" <?php echo $team['instagram']; ?>">
       </div>
     </div>
     <div class="account-field-info">
       <span class="label">YouTube:</span>
       <div class="cont">
-        <input type="text" name="youtube" value="">
+        <input type="text" name="youtube" value=" <?php echo $team['youtube']; ?>">
       </div>
     </div>
     <div class="account-field-info" style="margin-bottom: 0">
       <span class="label">VK:</span>
       <div class="cont">
-        <input type="text" name="vk" value="">
+        <input type="text" name="vk" value=" <?php echo $team['vk']; ?>">
       </div>
     </div>
   </div>
