@@ -32,7 +32,7 @@
 ?>
 
 <?php
-  $query = "SELECT * FROM `event-participants` WHERE teamid = '$teamid'";
+  $query = "SELECT * FROM `event-participants` JOIN `events` ON `event-participants`.id = `events`.id WHERE teamid = '$teamid'";
   $result = mysqli_query($date, $query);
   $participation = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -73,7 +73,8 @@
   } else {
     if ($participation) {
       ?>
-      <span>You are participant, mazafaka</span>
+      <span>Your team is participant of the <?php echo $participation['name']; ?> event.</span>
+      <a href="../pages/upload-files.php">Upload files</a>
       <?php
     }
   }

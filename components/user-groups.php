@@ -21,7 +21,7 @@
           if ($value == 'Regular user') {
             ?>
             <div class="group">
-              <a class="group-link" href="#"><?php echo $value; ?></a>
+              <a class="group-link" href="../pages/reset-group.php"><?php echo $value; ?></a>
             </div>
             <?php
           } elseif (($value == 'FSC team member' || $value == 'FSE team member')) {
@@ -52,41 +52,6 @@
       }
       ?>
 
-
-      <!-- <div class="group">
-        <a class="group-link" href="#">FSE team member</a>
-        <span class="group-conf">You can join an existing team or create new team</span>
-      </div> -->
-
-
-      <!-- <div class="group">
-        <a class="group-link" href="#">Organizer</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Marshal</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Scrutineer</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Volunteer</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Partner</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Press</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="#">Guest</a>
-        <span class="group-conf">Needs to be confirmed by admin</span>
-      </div> -->
     </div>
   </div>
 </div>
