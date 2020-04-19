@@ -13,7 +13,7 @@
     $eventid = $application['eventid'];
     $number = $application['number'];
 
-    $query = "INSERT INTO `event-participants` VALUES (NULL, '$teamid', '$eventid', '$number')";
+    $query = "INSERT INTO `event-participants` VALUES (NULL, '$teamid', '$eventid', '$number', '', 0, '')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));

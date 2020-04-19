@@ -73,8 +73,11 @@
   } else {
     if ($participation) {
       ?>
-      <span>Your team is participant of the <?php echo $participation['name']; ?> event.</span>
-      <a href="../pages/upload-files.php">Upload files</a>
+      <div class="" style="display: flex; flex-direction: column">
+        <span style="margin-bottom:10px">Your team is participant of the <?php echo $participation['name']; ?> event.</span>
+        <a href="../pages/application-settings.php" style="margin-bottom:5px">Application settings</a>
+        <a href="../pages/deadlines.php">Deadlines && Upload documents</a>
+      </div>
       <?php
     }
   }
