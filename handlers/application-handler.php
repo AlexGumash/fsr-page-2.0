@@ -19,6 +19,23 @@
       die(mysqli_error($date));
     }
 
+    $query = "INSERT INTO `event-docs` VALUES (NULL, '$teamid', '$eventid', '', '', '', '', '', '', '', '', '', '', '')";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die(mysqli_error($date));
+    }
+
+    $query = "SELECT * FROM `event-docs` WHERE teamid = '$teamid'";
+    $result = mysqli_query($date, $query);
+    $eventdocid = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $eventdocid = $eventdocid['id'];
+
+    $query = "INSERT INTO `event-docs-approval` VALUES (NULL, '$eventdocid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die(mysqli_error($date));
+    }
+
     $query = "DELETE FROM `event-application` WHERE id = '$appid'";
     $result = mysqli_query($date, $query);
     if (!$result) {

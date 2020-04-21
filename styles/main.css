@@ -9,6 +9,7 @@
 @import 'admin.css';
 @import 'recovery.css';
 @import 'application-settings.css';
+@import 'deadlines.css';
 
 body {
   width: 100%;

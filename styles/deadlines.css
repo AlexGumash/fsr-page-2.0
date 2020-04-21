@@ -1,0 +1,70 @@
+.deadlines-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.deadlines-table-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.deadline {
+  display: flex;
+  flex-direction: row;
+}
+
+.deadline-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.deadline-column-title-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-bottom: 1px solid black;
+}
+
+.deadlines-table-header-title {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  width: 83%;
+}
+
+.deadline-title {
+  /* margin-right: 10px; */
+}
+
+.first-column {
+  width: 15%;
+  border-right: 1px solid black;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.second-column {
+  border-bottom: 1px solid black;
+  width: 85%;
+}
+
+.descr {
+  padding: 10px;
+}
+
+.deadline-title {
+  padding: 10px;
+}
+
+.deadline-status {
+  border-left: 1px solid black;
+  padding: 10px;
+  width: 80px;
+}
+
+.deadline-file-links {
+  padding: 10px;
+}
