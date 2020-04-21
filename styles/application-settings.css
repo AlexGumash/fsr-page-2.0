@@ -1,3 +1,31 @@
 .settings-item {
   margin-bottom: 10px;
 }
+
+.event-links {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.application-settings-header {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.application-settings-header-links {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.application-settings-header-links a {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}

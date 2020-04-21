@@ -32,7 +32,14 @@
           } else {
         ?>
         <div class="" style="width: 80%; margin: 0 auto; padding-top: 20px">
-          <div class="">
+          <div class="application-settings-header">
+            <span>Application settings for Formula Student Russia 2020 event</span>
+          </div>
+          <div class="application-settings-header-links">
+            <a href="myteam.php" style="margin-right:10px">Back to my team</a>
+            <a href="deadlines.php">Deadlines</a>
+          </div>
+          <form class="" action="../handlers/application-settings.php" method="post">
             <div class="settings-item">
               <?php
               $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.teamid = $teamid AND advisor = 'Faculty advisor'";
@@ -66,7 +73,7 @@
                     if ($user['captain'] == 'Captain') {
                       ?>
                         <span>Selected fuel type for the event: </span>
-                        <select class="" name="fuel-select">
+                        <select class="" name="fuelselect">
                           <option value="95" <?php if ($participant['fuel'] == '95') {
                             echo "selected";
                           } ?>>RON95</option>
@@ -123,7 +130,7 @@
                     ?>
                     <div class="">
                       <span><?php echo $member['lastname']; ?> <?php echo $member['firstname']; ?></span>
-                      <input type="checkbox" name="event-participant[]" value="<?php echo $member['id'] ?>" <?php if (!$user['captain'] == 'Captain') {
+                      <input type="checkbox" name="eventparticipants[]" value="<?php echo $member['userid'] ?>" <?php if (!$user['captain'] == 'Captain') {
                         echo "disabled";
                       } ?> <?php if ($memberparticipant) {
                         echo "checked";
@@ -134,7 +141,10 @@
                 ?>
               </div>
             </div>
-          </div>
+            <div class="">
+              <input type="submit" name="application-settings-submit" value="Submit">
+            </div>
+          </form>
         </div>
       <?php } ?>
       </div>

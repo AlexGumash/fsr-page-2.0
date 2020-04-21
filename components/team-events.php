@@ -75,8 +75,8 @@
       ?>
       <div class="" style="display: flex; flex-direction: column">
         <span style="margin-bottom:10px">Your team is participant of the <?php echo $participation['name']; ?> event.</span>
-        <a href="../pages/application-settings.php" style="margin-bottom:5px">Application settings</a>
-        <a href="../pages/deadlines.php">Deadlines && Upload documents</a>
+        <a class="event-links" href="../pages/application-settings.php" style="margin-bottom:5px">Application settings</a>
+        <a class="event-links" href="../pages/deadlines.php">Deadlines && Upload documents</a>
       </div>
       <?php
     }
