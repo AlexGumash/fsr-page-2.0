@@ -196,10 +196,7 @@
               }
 
             ?>
-              </div>
-
-
-
+          </div>
       </div>
     <input type="submit" name="edit-submit" value="Confirm changes">
   </div>
