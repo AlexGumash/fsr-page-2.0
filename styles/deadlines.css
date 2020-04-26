@@ -12,8 +12,15 @@
 }
 
 .deadline {
-  display: flex;
+}
+
+.deadline-main {
   flex-direction: row;
+  display: flex;
+}
+
+.deadline-sub {
+  border-bottom: 1px solid black;
 }
 
 .deadline-column {
@@ -67,4 +74,10 @@
 
 .deadline-file-links {
   padding: 10px;
+  text-decoration: underline;
+}
+
+.deadline-upload-file {
+  padding: 10px;
+  display: none;
 }

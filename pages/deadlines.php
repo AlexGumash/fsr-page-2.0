@@ -51,6 +51,34 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../styles/main.css">
     <title>FSR</title>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src='../scripts/toggle.js'></script>
+    <script type="text/javascript">
+      function uploadFile(number, doc) {
+        $('#valid-file'+number).html("Please wait...")
+        var filename = 'file' + number;
+        var file_data = $("input[name="+filename).prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append('doc', doc)
+        $.ajax({
+            url: '../handlers/upload-files.php',
+            data: form_data,
+            dataType: 'text',  // what to expect back from the PHP script, if anything
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'post'
+         }).done(function(result){
+           if (result != '') {
+             $('#valid-file'+number).html(result)
+           } else {
+             $('#valid-file'+number).html('')
+             location.reload()
+           }
+         })
+      }
+    </script>
   </head>
   <body>
     <div class="container">
@@ -77,114 +105,196 @@
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>20 July 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Impact attenuator data</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['iad-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['iad-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>20 July 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Impact attenuator data</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['iad-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['iad-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="1" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['iad'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['iad']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file1">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file1" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file1" value="Upload" onclick="uploadFile(1, 'IAD')">
+                  <div class="" id="valid-file1">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>20 July 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Structural Equivalency 3D Model</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['se3d-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['se3d-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>20 July 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Structural Equivalency 3D Model</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['se3d-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['se3d-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="2" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['se3d'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['se3d']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file2">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file2" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file2" value="Upload" onclick="uploadFile(2, 'SE3D')">
+                  <div class="" id="valid-file2">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>20 July 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Structural Equivalency Spreadsheet</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['ses-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['ses-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>20 July 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Structural Equivalency Spreadsheet</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['ses-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['ses-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="3" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['ses'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['ses']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file3">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file3" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file3" value="Upload" onclick="uploadFile(3, 'SES')">
+                  <div class="" id="valid-file3">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>20 July 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Structural Equivalency Spreadsheet Approval</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['sesa-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['sesa-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>20 July 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Structural Equivalency Spreadsheet Approval</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['sesa-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['sesa-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="4" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['sesa'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['sesa']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file4">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file4" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file4" value="Upload" onclick="uploadFile(4, 'SESA')">
+                  <div class="" id="valid-file4">
+
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,30 +302,50 @@
               if ($team['class'] == 'EV') {
                 ?>
                 <div class="deadline">
-                  <div class="first-column deadline-column deadline-date">
-                    <span>20 July 2020</span>
-                    <span>24:00 MSK</span>
-                  </div>
-                  <div class="second-column deadline-column">
-                    <div class="deadline-column-row deadline-column-title-status">
-                      <div class="deadline-title">
-                        <span>Electrical System Form</span>
-                      </div>
-                      <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['esf-status']) ?>">
-                        <span>
-                          <?php echo (getStatus($eventdocs['esf-status'])); ?>
-                        </span>
-                        <div class="">
-                          icon
+                  <div class="deadline-main">
+                    <div class="first-column deadline-column deadline-date">
+                      <span>20 July 2020</span>
+                      <span>24:00 MSK</span>
+                    </div>
+                    <div class="second-column deadline-column">
+                      <div class="deadline-column-row deadline-column-title-status">
+                        <div class="deadline-title">
+                          <span>Electrical System Form</span>
+                        </div>
+                        <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['esf-status']) ?>">
+                          <span>
+                            <?php echo (getStatus($eventdocs['esf-status'])); ?>
+                          </span>
+                          <div class="">
+                            icon
+                          </div>
                         </div>
                       </div>
+                      <div class="deadline-column-row descr">
+                        description
+                      </div>
+                      <div class="deadline-column-row deadline-file-links">
+                        <span style="margin-right:5px" file="5" class="upload-link">Upload</span>
+                        <?php
+                        if ($eventdocs['esf'] != '') {
+                          ?>
+                          <a href="../deadline-files/<?php echo $eventdocs['esf']; ?>">Download</a>
+                          <?php
+                        }?>
+                      </div>
                     </div>
-                    <div class="deadline-column-row descr">
-                      description
-                    </div>
-                    <div class="deadline-column-row deadline-file-links">
-                      <a href="#" style="margin-right:5px">Upload</a>
-                      <a href="#">Download</a>
+                  </div>
+                  <div class="deadline-sub">
+                    <div class="deadline-upload-file" id="upload-file5">
+                      <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                        <span style="margin-bottom: 10px">Select file:</span>
+                        <input type="file" name="file5" accept=".pdf" required>
+                      </div>
+
+                      <input type="submit" name="submit-button-file5" value="Upload" onclick="uploadFile(5, 'ESF')">
+                      <div class="" id="valid-file5">
+
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -223,142 +353,246 @@
               }
             ?>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>10 August 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Business Plan Pitch Video</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['bppv-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['bppv-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Business Plan Pitch Video</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['bppv-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['bppv-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="6" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['bppv'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['bppv']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file6">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file6" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file6" value="Upload" onclick="uploadFile(6, 'BPPV')">
+                  <div class="" id="valid-file6">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>10 August 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>CRD</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['crd-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['crd-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>CRD</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['crd-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['crd-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="7" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['crd'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['crd']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file7">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file7" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file7" value="Upload" onclick="uploadFile(7, 'CRD')">
+                  <div class="" id="valid-file7">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>10 August 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Design Spec Sheet</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['dss-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['dss-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Design Spec Sheet</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['dss-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['dss-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="8" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['dss'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['dss']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file8">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file8" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file8" value="Upload" onclick="uploadFile(8, 'DSS')">
+                  <div class="" id="valid-file8">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>10 August 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Engineering Design Report</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['edr-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['edr-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Engineering Design Report</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['edr-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['edr-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="9" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['edr'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['edr']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file9">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file9" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file9" value="Upload" onclick="uploadFile(9, 'EDR')">
+                  <div class="" id="valid-file9">
+
+                  </div>
                 </div>
               </div>
             </div>
             <div class="deadline">
-              <div class="first-column deadline-column deadline-date">
-                <span>24 August 2020</span>
-                <span>24:00 MSK</span>
-              </div>
-              <div class="second-column deadline-column">
-                <div class="deadline-column-row deadline-column-title-status">
-                  <div class="deadline-title">
-                    <span>Magazine Uploads</span>
-                  </div>
-                  <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['mu-status']) ?>">
-                    <span>
-                      <?php echo (getStatus($eventdocs['mu-status'])); ?>
-                    </span>
-                    <div class="">
-                      icon
+              <div class="deadline-main">
+
+                <div class="first-column deadline-column deadline-date">
+                  <span>24 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Magazine Uploads</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['mu-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['mu-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
                     </div>
                   </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="10" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['mu'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['mu']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
                 </div>
-                <div class="deadline-column-row descr">
-                  description
-                </div>
-                <div class="deadline-column-row deadline-file-links">
-                  <a href="#" style="margin-right:5px">Upload</a>
-                  <a href="#">Download</a>
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file10">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file10" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file10" value="Upload" onclick="uploadFile(10, 'MU')">
+                  <div class="" id="valid-file10">
+
+                  </div>
                 </div>
               </div>
             </div>
@@ -366,30 +600,51 @@
               if ($team['class'] == 'EV') {
                 ?>
                 <div class="deadline">
-                  <div class="first-column deadline-column deadline-date">
-                    <span>24 August 2020</span>
-                    <span>24:00 MSK</span>
-                  </div>
-                  <div class="second-column deadline-column">
-                    <div class="deadline-column-row deadline-column-title-status">
-                      <div class="deadline-title">
-                        <span>Electrical System Officer Qualification</span>
-                      </div>
-                      <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['esoq-status']) ?>">
-                        <span>
-                          <?php echo (getStatus($eventdocs['esoq-status'])); ?>
-                        </span>
-                        <div class="">
-                          icon
+                  <div class="deadline-main">
+
+                    <div class="first-column deadline-column deadline-date">
+                      <span>24 August 2020</span>
+                      <span>24:00 MSK</span>
+                    </div>
+                    <div class="second-column deadline-column">
+                      <div class="deadline-column-row deadline-column-title-status">
+                        <div class="deadline-title">
+                          <span>Electrical System Officer Qualification</span>
+                        </div>
+                        <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['esoq-status']) ?>">
+                          <span>
+                            <?php echo (getStatus($eventdocs['esoq-status'])); ?>
+                          </span>
+                          <div class="">
+                            icon
+                          </div>
                         </div>
                       </div>
+                      <div class="deadline-column-row descr">
+                        description
+                      </div>
+                      <div class="deadline-column-row deadline-file-links">
+                        <span style="margin-right:5px" file="11" class="upload-link">Upload</span>
+                        <?php
+                        if ($eventdocs['esoq']) {
+                          ?>
+                          <a href="../deadline-files/<?php echo $eventdocs['esoq']; ?>">Download</a>
+                          <?php
+                        }?>
+                      </div>
                     </div>
-                    <div class="deadline-column-row descr">
-                      description
-                    </div>
-                    <div class="deadline-column-row deadline-file-links">
-                      <a href="#" style="margin-right:5px">Upload</a>
-                      <a href="#">Download</a>
+                  </div>
+                  <div class="deadline-sub">
+                    <div class="deadline-upload-file" id="upload-file11">
+                      <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                        <span style="margin-bottom: 10px">Select file:</span>
+                        <input type="file" name="file11" accept=".pdf" required>
+                      </div>
+
+                      <input type="submit" name="submit-button-file11" value="Upload" onclick="uploadFile(11, 'ESOQ')">
+                      <div class="" id="valid-file11">
+
+                      </div>
                     </div>
                   </div>
                 </div>

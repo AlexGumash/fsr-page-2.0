@@ -29,8 +29,9 @@
     $result = mysqli_query($date, $query);
     $eventdocid = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $eventdocid = $eventdocid['id'];
+    $teamid = $eventdocid['teamid'];
 
-    $query = "INSERT INTO `event-docs-approval` VALUES (NULL, '$eventdocid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
+    $query = "INSERT INTO `event-docs-approval` VALUES (NULL, '$teamid', '$eventdocid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));
