@@ -191,7 +191,7 @@
                 <div class="deadline-upload-file" id="upload-file2">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file2" accept=".pdf" required>
+                    <input type="file" name="file2" accept=".zip, .gzip, .gz" required>
                   </div>
 
                   <input type="submit" name="submit-button-file2" value="Upload" onclick="uploadFile(2, 'SE3D')">
@@ -240,7 +240,7 @@
                 <div class="deadline-upload-file" id="upload-file3">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file3" accept=".pdf" required>
+                    <input type="file" name="file3" accept=".xls, .xlm, .xlc, .xlxs" required>
                   </div>
 
                   <input type="submit" name="submit-button-file3" value="Upload" onclick="uploadFile(3, 'SES')">
@@ -288,7 +288,7 @@
                 <div class="deadline-upload-file" id="upload-file4">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file4" accept=".pdf" required>
+                    <input type="file" name="file4" accept=".pdf, .jpeg, .jpg" required>
                   </div>
 
                   <input type="submit" name="submit-button-file4" value="Upload" onclick="uploadFile(4, 'SESA')">
@@ -339,7 +339,7 @@
                     <div class="deadline-upload-file" id="upload-file5">
                       <div class="form-input-div-textarea" style="margin-bottom: 20px">
                         <span style="margin-bottom: 10px">Select file:</span>
-                        <input type="file" name="file5" accept=".pdf" required>
+                        <input type="file" name="file5" accept=".pdf, .jpeg, jpg" required>
                       </div>
 
                       <input type="submit" name="submit-button-file5" value="Upload" onclick="uploadFile(5, 'ESF')">
@@ -390,7 +390,7 @@
                 <div class="deadline-upload-file" id="upload-file6">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file6" accept=".pdf" required>
+                    <input type="file" name="file6" accept=".mp4" required>
                   </div>
 
                   <input type="submit" name="submit-button-file6" value="Upload" onclick="uploadFile(6, 'BPPV')">
@@ -409,11 +409,11 @@
                 <div class="second-column deadline-column">
                   <div class="deadline-column-row deadline-column-title-status">
                     <div class="deadline-title">
-                      <span>CRD</span>
+                      <span>Cost - Bill of Material</span>
                     </div>
-                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['crd-status']) ?>">
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['bom-status']) ?>">
                       <span>
-                        <?php echo (getStatus($eventdocs['crd-status'])); ?>
+                        <?php echo (getStatus($eventdocs['bom-status'])); ?>
                       </span>
                       <div class="">
                         icon
@@ -426,9 +426,9 @@
                   <div class="deadline-column-row deadline-file-links">
                     <span style="margin-right:5px" file="7" class="upload-link">Upload</span>
                     <?php
-                    if ($eventdocs['crd'] != '') {
+                    if ($eventdocs['bom'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['crd']; ?>">Download</a>
+                      <a href="../deadline-files/<?php echo $eventdocs['bom']; ?>">Download</a>
                       <?php
                     }?>
                   </div>
@@ -439,11 +439,109 @@
                 <div class="deadline-upload-file" id="upload-file7">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file7" accept=".pdf" required>
+                    <input type="file" name="file7" accept=".xls, .xlm, .xlc, .xlxs" required>
                   </div>
 
-                  <input type="submit" name="submit-button-file7" value="Upload" onclick="uploadFile(7, 'CRD')">
+                  <input type="submit" name="submit-button-file7" value="Upload" onclick="uploadFile(7, 'BOM')">
                   <div class="" id="valid-file7">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="deadline">
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Cost - Explanation File</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['ef-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['ef-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
+                    </div>
+                  </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="8" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['ef'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['ef']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
+                </div>
+
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file8">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file8" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file8" value="Upload" onclick="uploadFile(8, 'EF')">
+                  <div class="" id="valid-file8">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="deadline">
+              <div class="deadline-main">
+                <div class="first-column deadline-column deadline-date">
+                  <span>10 August 2020</span>
+                  <span>24:00 MSK</span>
+                </div>
+                <div class="second-column deadline-column">
+                  <div class="deadline-column-row deadline-column-title-status">
+                    <div class="deadline-title">
+                      <span>Cost - Supporting Material File</span>
+                    </div>
+                    <div class="deadline-status" style="background-color: <?php echo getColor($eventdocs['smf-status']) ?>">
+                      <span>
+                        <?php echo (getStatus($eventdocs['smf-status'])); ?>
+                      </span>
+                      <div class="">
+                        icon
+                      </div>
+                    </div>
+                  </div>
+                  <div class="deadline-column-row descr">
+                    description
+                  </div>
+                  <div class="deadline-column-row deadline-file-links">
+                    <span style="margin-right:5px" file="9" class="upload-link">Upload</span>
+                    <?php
+                    if ($eventdocs['smf'] != '') {
+                      ?>
+                      <a href="../deadline-files/<?php echo $eventdocs['smf']; ?>">Download</a>
+                      <?php
+                    }?>
+                  </div>
+                </div>
+
+              </div>
+              <div class="deadline-sub">
+                <div class="deadline-upload-file" id="upload-file9">
+                  <div class="form-input-div-textarea" style="margin-bottom: 20px">
+                    <span style="margin-bottom: 10px">Select file:</span>
+                    <input type="file" name="file9" accept=".pdf" required>
+                  </div>
+
+                  <input type="submit" name="submit-button-file9" value="Upload" onclick="uploadFile(9, 'SMF')">
+                  <div class="" id="valid-file9">
 
                   </div>
                 </div>
@@ -474,7 +572,7 @@
                     description
                   </div>
                   <div class="deadline-column-row deadline-file-links">
-                    <span style="margin-right:5px" file="8" class="upload-link">Upload</span>
+                    <span style="margin-right:5px" file="10" class="upload-link">Upload</span>
                     <?php
                     if ($eventdocs['dss'] != '') {
                       ?>
@@ -485,14 +583,14 @@
                 </div>
               </div>
               <div class="deadline-sub">
-                <div class="deadline-upload-file" id="upload-file8">
+                <div class="deadline-upload-file" id="upload-file10">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file8" accept=".pdf" required>
+                    <input type="file" name="file10" accept=".xls, .xlm, .xlc, .xlxs" required>
                   </div>
 
-                  <input type="submit" name="submit-button-file8" value="Upload" onclick="uploadFile(8, 'DSS')">
-                  <div class="" id="valid-file8">
+                  <input type="submit" name="submit-button-file10" value="Upload" onclick="uploadFile(10, 'DSS')">
+                  <div class="" id="valid-file10">
 
                   </div>
                 </div>
@@ -523,7 +621,7 @@
                     description
                   </div>
                   <div class="deadline-column-row deadline-file-links">
-                    <span style="margin-right:5px" file="9" class="upload-link">Upload</span>
+                    <span style="margin-right:5px" file="11" class="upload-link">Upload</span>
                     <?php
                     if ($eventdocs['edr'] != '') {
                       ?>
@@ -534,14 +632,14 @@
                 </div>
               </div>
               <div class="deadline-sub">
-                <div class="deadline-upload-file" id="upload-file9">
+                <div class="deadline-upload-file" id="upload-file11">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file9" accept=".pdf" required>
+                    <input type="file" name="file11" accept=".pdf" required>
                   </div>
 
-                  <input type="submit" name="submit-button-file9" value="Upload" onclick="uploadFile(9, 'EDR')">
-                  <div class="" id="valid-file9">
+                  <input type="submit" name="submit-button-file11" value="Upload" onclick="uploadFile(11, 'EDR')">
+                  <div class="" id="valid-file11">
 
                   </div>
                 </div>
@@ -572,7 +670,7 @@
                     description
                   </div>
                   <div class="deadline-column-row deadline-file-links">
-                    <span style="margin-right:5px" file="10" class="upload-link">Upload</span>
+                    <span style="margin-right:5px" file="12" class="upload-link">Upload</span>
                     <?php
                     if ($eventdocs['mu'] != '') {
                       ?>
@@ -583,14 +681,14 @@
                 </div>
               </div>
               <div class="deadline-sub">
-                <div class="deadline-upload-file" id="upload-file10">
+                <div class="deadline-upload-file" id="upload-file12">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
-                    <input type="file" name="file10" accept=".pdf" required>
+                    <input type="file" name="file12" accept=".pdf" required>
                   </div>
 
-                  <input type="submit" name="submit-button-file10" value="Upload" onclick="uploadFile(10, 'MU')">
-                  <div class="" id="valid-file10">
+                  <input type="submit" name="submit-button-file12" value="Upload" onclick="uploadFile(12, 'MU')">
+                  <div class="" id="valid-file12">
 
                   </div>
                 </div>
@@ -624,7 +722,7 @@
                         description
                       </div>
                       <div class="deadline-column-row deadline-file-links">
-                        <span style="margin-right:5px" file="11" class="upload-link">Upload</span>
+                        <span style="margin-right:5px" file="13" class="upload-link">Upload</span>
                         <?php
                         if ($eventdocs['esoq']) {
                           ?>
@@ -635,14 +733,14 @@
                     </div>
                   </div>
                   <div class="deadline-sub">
-                    <div class="deadline-upload-file" id="upload-file11">
+                    <div class="deadline-upload-file" id="upload-file13">
                       <div class="form-input-div-textarea" style="margin-bottom: 20px">
                         <span style="margin-bottom: 10px">Select file:</span>
-                        <input type="file" name="file11" accept=".pdf" required>
+                        <input type="file" name="file13" accept=".pdf, .jpeg, .jpg" required>
                       </div>
 
-                      <input type="submit" name="submit-button-file11" value="Upload" onclick="uploadFile(11, 'ESOQ')">
-                      <div class="" id="valid-file11">
+                      <input type="submit" name="submit-button-file13" value="Upload" onclick="uploadFile(13, 'ESOQ')">
+                      <div class="" id="valid-file13">
 
                       </div>
                     </div>

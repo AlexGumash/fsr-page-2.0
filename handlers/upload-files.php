@@ -16,10 +16,11 @@
 
   if (isset($_FILES['file'])) {
     $file_name = $_FILES['file']['name'];
+    $ext = end((explode(".", $file_name)));
 
     $date2 = date('j')."-".date('m')."-".date('Y')."_".date('h').".".date('i');
 
-    $new_file_name = "FSR2020_" . $participant['number'] . "_" . $doc . "_" . $date2 . ".pdf";
+    $new_file_name = "FSR2020_" . $participant['number'] . "_" . $doc . "_" . $date2 . "." . $ext;
 
     move_uploaded_file($_FILES['file']['tmp_name'], '../deadline-files/' . $new_file_name);
 
@@ -95,13 +96,37 @@
         die("Error. Try again later");
       }
     }
-    if ($doc == 'CRD') {
-      $query = "UPDATE `event-docs` SET crd = '$new_file_name' WHERE teamid = '$teamid'";
+    if ($doc == 'BOM') {
+      $query = "UPDATE `event-docs` SET bom = '$new_file_name' WHERE teamid = '$teamid'";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later.");
       }
-      $query = "UPDATE `event-docs-approval` SET `crd-status` = 2 WHERE teamid = '$teamid'";
+      $query = "UPDATE `event-docs-approval` SET `bom-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+    }
+    if ($doc == 'SMF') {
+      $query = "UPDATE `event-docs` SET smf = '$new_file_name' WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later.");
+      }
+      $query = "UPDATE `event-docs-approval` SET `smf-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+    }
+    if ($doc == 'EF') {
+      $query = "UPDATE `event-docs` SET ef = '$new_file_name' WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later.");
+      }
+      $query = "UPDATE `event-docs-approval` SET `ef-status` = 2 WHERE teamid = '$teamid'";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
