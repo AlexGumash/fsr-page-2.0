@@ -25,6 +25,22 @@
   cursor: pointer;
 }
 
+.admin-menu-item-link {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 3px 7px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.admin-doc-menu-item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 3px 7px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .application {
   display: flex;
   flex-direction: column;
@@ -36,4 +52,53 @@
 
 .application-header {
   margin-bottom: 10px;
+}
+
+.docs-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.docs-list-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.doc {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.docs-list-1 {
+  width: 20%;
+  margin-right: 10px;
+  border-right: 1px solid black;
+  padding: 10px;
+}
+
+.docs-list-2 {
+  width: 40%;
+  margin-right: 10px;
+  border-right: 1px solid black;
+  padding: 10px;
+}
+
+.docs-list-3 {
+  width: 20%;
+  margin-right: 10px;
+  border-right: 1px solid black;
+  padding: 10px;
+}
+
+.docs-list-4 {
+  width: 20%;
+  margin-right: 10px;
+  padding: 10px;
 }

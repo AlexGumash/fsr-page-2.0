@@ -14,6 +14,11 @@
   $result = mysqli_query($date, $query);
   $participant = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+  $query = "SELECT * FROM `event-docs-approval` WHERE teamid = '$teamid'";
+  $result = mysqli_query($date, $query);
+  $approval = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  $approvalid = $approval['id'];
+
   if (isset($_FILES['file'])) {
     $file_name = $_FILES['file']['name'];
     $ext = end((explode(".", $file_name)));
@@ -35,6 +40,11 @@
       if (!$result) {
         die(mysqli_error());
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'iad', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'SE3D') {
       $query = "UPDATE `event-docs` SET se3d = '$new_file_name' WHERE teamid = '$teamid'";
@@ -43,6 +53,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `se3d-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'se3d', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -59,6 +74,11 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'ses', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'SESA') {
       $query = "UPDATE `event-docs` SET sesa = '$new_file_name' WHERE teamid = '$teamid'";
@@ -67,6 +87,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `sesa-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'sesa', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -83,6 +108,11 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'esf', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'BPPV') {
       $query = "UPDATE `event-docs` SET bppv = '$new_file_name' WHERE teamid = '$teamid'";
@@ -91,6 +121,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `bppv-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'bppv', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -107,6 +142,11 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'bom', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'SMF') {
       $query = "UPDATE `event-docs` SET smf = '$new_file_name' WHERE teamid = '$teamid'";
@@ -115,6 +155,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `smf-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'smf', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -131,6 +176,11 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'ef', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'DSS') {
       $query = "UPDATE `event-docs` SET dss = '$new_file_name' WHERE teamid = '$teamid'";
@@ -139,6 +189,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `dss-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'dss', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -155,6 +210,11 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'edr', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
     if ($doc == 'MU') {
       $query = "UPDATE `event-docs` SET mu = '$new_file_name' WHERE teamid = '$teamid'";
@@ -163,6 +223,11 @@
         die("Error. Try again later.");
       }
       $query = "UPDATE `event-docs-approval` SET `mu-status` = 2 WHERE teamid = '$teamid'";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'mu', 'Document uploaded', NULL)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die("Error. Try again later");
@@ -179,7 +244,13 @@
       if (!$result) {
         die("Error. Try again later");
       }
+      $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'esoq', 'Document uploaded', NULL)";
+      $result = mysqli_query($date, $query);
+      if (!$result) {
+        die("Error. Try again later");
+      }
     }
+
   } else {
     echo "Please, select file to upload";
   }

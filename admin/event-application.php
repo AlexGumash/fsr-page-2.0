@@ -4,8 +4,17 @@
   $query = "SELECT * FROM `event-application`";
   $result = mysqli_query($date, $query);
 ?>
-
+<?php
+  if ($_SESSION['rights'] != 'admin') {
+    die("Log in as admin!");
+  }
+?>
 <div class="applications">
+  <?php
+    if ($_SESSION['rights'] != 'admin') {
+      die("Log in as admin!");
+    }
+  ?>
   <div class="applications-list">
     <?php
       while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

@@ -24,32 +24,26 @@
       <div class="middle">
         <div class="admin-container">
           <div class="admin-header">
-            <span>Admin</span>
+            <span>Admin. Deadline documents approval panel</span>
+            <!-- <a href="admin.php">
+              <div class="back-to-account">
+                <span>&#8592;</span>
+              </div>
+            </a>
+            <span>Back to admin panel</span> -->
           </div>
 
           <div class="admin-menu">
-            <div class="admin-menu-item" data_target='event-application.php'>
-              <span>Event applications</span>
+            <div class="admin-menu-item" data_target='ti-documents.php'>
+              <span>TI Documents</span>
             </div>
-            <!-- <a href="user-groups-applications.php">
-              <div class="admin-menu-item">
-                <span>User groups applications</span>
-              </div>
-            </a>
-            <a href="participants-panel.php">
-              <div class="admin-menu-item">
-                <span>Participants panel</span>
-              </div>
-            </a> -->
-            <a href="event-team-docs.php">
-              <div class="admin-menu-item-link">
-                <span>Teams documents</span>
-              </div>
-            </a>
+            <div class="admin-menu-item" data_target='statics-documents.php'>
+              <span>Statics documents</span>
+            </div>
           </div>
 
           <div id="admin-content">
-            <?php include 'event-application.php' ?>
+
 
           </div>
           <!-- <div class="admin-field">

@@ -48,4 +48,16 @@ $(function(){
     });
   });
 
+  $('.admin-doc-menu-item').click(function(e) {
+    e.preventDefault();
+    var pageName = $(this).attr('data_target_docs');
+    $.ajax({
+      url: pageName,
+      cache: true,
+      success: function(html){
+        $("#docs-content").html(html);
+      }
+    });
+  });
+
 });

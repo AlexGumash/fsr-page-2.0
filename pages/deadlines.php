@@ -11,6 +11,11 @@
   $result = mysqli_query($date, $query);
   $eventdocs = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+  $query = "SELECT * FROM `event-docs-approval` WHERE teamid = '$teamid'";
+  $result = mysqli_query($date, $query);
+  $approval = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  $approvalid = $approval['id'];
+
   function getColor($status) {
     if ($status == 0) {
       return 'rgb(255, 36, 0)';
@@ -132,14 +137,41 @@
                     <?php
                     if ($eventdocs['iad'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['iad']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['iad']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="1" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
 
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog1">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'iad' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1]?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file1">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -181,13 +213,40 @@
                     <?php
                     if ($eventdocs['se3d'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['se3d']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['se3d']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="2" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog2">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'se3d' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1]?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file2">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -229,14 +288,41 @@
                     <?php
                     if ($eventdocs['ses'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['ses']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['ses']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="3" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
 
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog3">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'ses' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file3">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -278,13 +364,40 @@
                     <?php
                     if ($eventdocs['sesa'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['sesa']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['sesa']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="4" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog4">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'sesa' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file4">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -329,13 +442,40 @@
                         <?php
                         if ($eventdocs['esf'] != '') {
                           ?>
-                          <a href="../deadline-files/<?php echo $eventdocs['esf']; ?>">Download</a>
+                          <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['esf']; ?>">Download</a>
                           <?php
                         }?>
+                        <span file="5" class="changeLog-link">Changelog</span>
                       </div>
                     </div>
                   </div>
                   <div class="deadline-sub">
+                    <div class="changelog-list" id="changelog5">
+                      <?php
+                      $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'esf' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                      $result = mysqli_query($date, $query);
+                      while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        $datetime = $log['time'];
+                        $datetime_arr = explode(" ", $datetime);
+                        $news_date = $datetime_arr[0];
+                        $time = $datetime_arr[1];
+                        $date_arr = explode("-", $news_date);
+                        $time_arr = explode(":", $time);
+                        ?>
+                        <div class="changelog">
+                          <div class="changelog-message">
+                            <span><?php echo $log['message']; ?></span>
+                          </div>
+                          <div class="changelog-time">
+                            <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                            <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                          </div>
+                        </div>
+                        <?php
+                      }
+                      ?>
+
+                    </div>
                     <div class="deadline-upload-file" id="upload-file5">
                       <div class="form-input-div-textarea" style="margin-bottom: 20px">
                         <span style="margin-bottom: 10px">Select file:</span>
@@ -380,13 +520,40 @@
                     <?php
                     if ($eventdocs['bppv'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['bppv']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['bppv']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="6" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog6">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'bppv' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file6">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -428,14 +595,41 @@
                     <?php
                     if ($eventdocs['bom'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['bom']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['bom']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="7" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
 
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog7">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'bom' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file7">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -477,14 +671,41 @@
                     <?php
                     if ($eventdocs['ef'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['ef']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['ef']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="8" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
 
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog8">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'ef' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file8">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -526,14 +747,41 @@
                     <?php
                     if ($eventdocs['smf'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['smf']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['smf']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="9" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
 
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog9">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'smf' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file9">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -576,13 +824,40 @@
                     <?php
                     if ($eventdocs['dss'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['dss']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['dss']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="10" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog10">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'dss' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file10">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -625,13 +900,40 @@
                     <?php
                     if ($eventdocs['edr'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['edr']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['edr']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="11" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog11">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'edr' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file11">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -674,13 +976,40 @@
                     <?php
                     if ($eventdocs['mu'] != '') {
                       ?>
-                      <a href="../deadline-files/<?php echo $eventdocs['mu']; ?>">Download</a>
+                      <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['mu']; ?>">Download</a>
                       <?php
                     }?>
+                    <span file="12" class="changeLog-link">Changelog</span>
                   </div>
                 </div>
               </div>
               <div class="deadline-sub">
+                <div class="changelog-list" id="changelog2">
+                  <?php
+                  $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'mu' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                  $result = mysqli_query($date, $query);
+                  while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $datetime = $log['time'];
+                    $datetime_arr = explode(" ", $datetime);
+                    $news_date = $datetime_arr[0];
+                    $time = $datetime_arr[1];
+                    $date_arr = explode("-", $news_date);
+                    $time_arr = explode(":", $time);
+                    ?>
+                    <div class="changelog">
+                      <div class="changelog-message">
+                        <span><?php echo $log['message']; ?></span>
+                      </div>
+                      <div class="changelog-time">
+                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                  ?>
+
+                </div>
                 <div class="deadline-upload-file" id="upload-file12">
                   <div class="form-input-div-textarea" style="margin-bottom: 20px">
                     <span style="margin-bottom: 10px">Select file:</span>
@@ -726,13 +1055,40 @@
                         <?php
                         if ($eventdocs['esoq']) {
                           ?>
-                          <a href="../deadline-files/<?php echo $eventdocs['esoq']; ?>">Download</a>
+                          <a style="margin-right:5px" href="../deadline-files/<?php echo $eventdocs['esoq']; ?>">Download</a>
                           <?php
                         }?>
+                        <span file="13" class="changeLog-link">Changelog</span>
                       </div>
                     </div>
                   </div>
                   <div class="deadline-sub">
+                    <div class="changelog-list" id="changelog13">
+                      <?php
+                      $query = "SELECT * FROM `docs-change-log` WHERE doctype = 'esoq' AND `approval-id` = '$approvalid' ORDER BY `time` DESC";
+                      $result = mysqli_query($date, $query);
+                      while ($log = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        $datetime = $log['time'];
+                        $datetime_arr = explode(" ", $datetime);
+                        $news_date = $datetime_arr[0];
+                        $time = $datetime_arr[1];
+                        $date_arr = explode("-", $news_date);
+                        $time_arr = explode(":", $time);
+                        ?>
+                        <div class="changelog">
+                          <div class="changelog-message">
+                            <span><?php echo $log['message']; ?></span>
+                          </div>
+                          <div class="changelog-time">
+                            <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                            <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
+                          </div>
+                        </div>
+                        <?php
+                      }
+                      ?>
+
+                    </div>
                     <div class="deadline-upload-file" id="upload-file13">
                       <div class="form-input-div-textarea" style="margin-bottom: 20px">
                         <span style="margin-bottom: 10px">Select file:</span>

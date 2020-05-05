@@ -81,3 +81,41 @@
   padding: 10px;
   display: none;
 }
+
+.changelog-list {
+  display: none;
+  flex-direction: column;
+}
+
+.changelog {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+}
+
+.changelog-time {
+  width: 15%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.changelog-time {
+  width: 15%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.changelog-message {
+  width: 85%;
+  padding: 10px;
+  border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.flex-visible {
+  display: flex;
+}
