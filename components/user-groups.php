@@ -15,43 +15,49 @@
   <div class="choose-group">
     <span class="group-label" style="margin-bottom: 5px;">Choose your new user group:</span>
     <div class="groups-list">
-      <?php
-      foreach ($groups as $key => $value) {
-        if ($value != $user['group']) {
-          if ($value == 'Regular user') {
-            ?>
-            <div class="group">
-              <a class="group-link" href="../pages/reset-group.php"><?php echo $value; ?></a>
-            </div>
-            <?php
-          } elseif (($value == 'FSC team member' || $value == 'FSE team member')) {
-            $class = explode(" ", $value);
-            $class = strtolower($class[0]);
-            ?>
-            <div class="group">
-              <a class="group-link" href="group-team.php?class=<?php echo $class; ?>"><?php echo $value; ?></a>
-              <span class="group-conf">You can join an existing team or create new team</span>
-            </div>
-            <?php
-          } elseif ($value == 'Team faculty advisor') {
-            ?>
-            <div class="group">
-              <a class="group-link" href="#"><?php echo $value; ?></a>
-              <span class="group-conf">Needs to be confirmed by team member</span>
-            </div>
-            <?php
-          } else {
-            ?>
-            <div class="group">
-              <a class="group-link" href="#"><?php echo $value; ?></a>
-              <span class="group-conf">Needs to be confirmed by admin</span>
-            </div>
-            <?php
-          }
-        }
-      }
-      ?>
-
+      <div class="group">
+        <a class="group-link" href="#">Regular user</a>
+      </div>
+      <div class="group">
+        <a class="group-link" href="group-team.php?class=<?php echo $class; ?>">team member</a>
+        <span class="group-conf">You can join an existing team or create new team</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="group-FA.php?class=<?php echo $class; ?>">Team faculty advisor</a>
+        <span class="group-conf">Needs to be confirmed by team member</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#"><?php echo $value; ?>Judge</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Organizer</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Marshal</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Scrutineer</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Volunteer</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Partner</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Press</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
+      <div class="group">
+        <a class="group-link" href="#">Guest</a>
+        <span class="group-conf">Needs to be confirmed by admin</span>
+      </div>
     </div>
   </div>
 </div>
