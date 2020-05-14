@@ -56,23 +56,45 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-                To join the team as team faculty advisor please send the request. Wait for confirmation by a team captain. After confirmation, you will become a team faculty advisor.
+                To register as marshal please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as marshal.
               </span>
             </div>
             <!-- тут нужен другой хэндлер -->
             <form class="" action="../handlers/join-team.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <fieldset class="choose-team-form">
-                <div class="account-field-info">
-                  <label for="uni" class="label">Choose your university:</label>
-                  <div class="cont">
-                    <input type="text" name="uni" value="<?php echo $userinfo['uni'] ?>" list="unis">
+                <div class="request-fields">
+                  <div class="request-fields__field">
+                    <label class="label" for="description">Descripton:</label>
+                    <input type="text" name="description" value="">
                   </div>
+                  <div class="request-fields__field">
+                    <label class="label" for="languages">Languages:</label>
+                    <input type="text" name="languages" value="">
+                  </div>
+                  <div class="request-fields__field">
+                    <label class="label" for="days">Participation days:</label>
+                    <input type="text" name="days" value="">
+                  </div>
+                  <fieldset class="request-fields__field">
+                    <legend class="field-label">Skills:</legend>
+                    
+                    <div>
+                      <input type="checkbox" name="first-aid">
+                      <label class="label" for="first-aid">The ability to provide first aid</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="fire-extinguishing">
+                      <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="fire-extinguishing">
+                      <label class="label" for="fire-extinguishing">The admission of electrical safety</label>
+                    </div>
+                  </fieldset>
                 </div>
-                <label for="team">Choose your team:</label>
-                <input type="text" name="team" value="" list="teams" class="choose-team-input">
               </fieldset>
-              <input type="submit" name="choose-team-submit" value="Send request">
+              <input type="submit" name="judge-request" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>
           </div>

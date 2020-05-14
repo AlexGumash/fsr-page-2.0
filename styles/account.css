@@ -1,6 +1,6 @@
 .account-container {
   padding: 10px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -37,6 +37,8 @@
 .account-info {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .left-column {
@@ -128,7 +130,7 @@
 }
 
 .desc-textarea {
-  width: 300px;
+  width: 210px;
   height: 80px;
   resize: none;
   border: 1px solid rgb(169, 169, 169);
