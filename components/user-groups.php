@@ -38,7 +38,7 @@
         if ($user['group'] != 'FSE team member') {
           ?>
           <div class="group">
-            <a class="group-link" href="group-team.php?class=fse">FSE team member</a>
+            <a class="group-link" href="../pages/group-team.php?class=fse">FSE team member</a>
             <span class="group-conf">You can join an existing team or create new team</span>
           </div>
           <?php
