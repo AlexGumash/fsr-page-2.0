@@ -56,22 +56,13 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-                To join the team as team faculty advisor please send the request. Wait for confirmation by a team captain. After confirmation, you will become a team faculty advisor.
-              </span>
+              To register as press please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as press.              </span>
             </div>
             <!-- тут нужен другой хэндлер -->
             <form class="" action="../handlers/join-team.php" method="post">
             <!-- тут нужен другой хэндлер -->
-              <fieldset class="choose-team-form">
-                <div class="account-field-info">
-                  <label for="uni" class="label">Choose your university:</label>
-                  <div class="cont">
-                    <input type="text" name="uni" value="<?php echo $userinfo['uni'] ?>" list="unis">
-                  </div>
-                </div>
-                <label for="team">Choose your team:</label>
-                <input type="text" name="team" value="" list="teams" class="choose-team-input">
-              </fieldset>
+              <label class="label" for="company">Company:</label>
+              <input type="text" name="company" value="">
               <input type="submit" name="choose-team-submit" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>

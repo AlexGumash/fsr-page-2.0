@@ -27,35 +27,35 @@
         <span class="group-conf">Needs to be confirmed by team member</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#"><?php echo $value; ?>Judge</a>
+        <a class="group-link" href="group-judge.php?class=<?php echo $class; ?>"><?php echo $value; ?>Judge</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Organizer</a>
+        <a class="group-link" href="group-org.php?class=<?php echo $class; ?>"">Organizer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Marshal</a>
+        <a class="group-link" href="group-marshal.php?class=<?php echo $class; ?>">Marshal</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Scrutineer</a>
+        <a class="group-link" href="group-scrutineer.php?class=<?php echo $class; ?>">Scrutineer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Volunteer</a>
+        <a class="group-link" href="group-volunteer.php?class=<?php echo $class; ?>">Volunteer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Partner</a>
+        <a class="group-link" href="group-partner.php?class=<?php echo $class; ?>">Partner</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Press</a>
+        <a class="group-link" href="group-press.php?class=<?php echo $class; ?>">Press</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="#">Guest</a>
+        <a class="group-link" href="group-guest.php?class=<?php echo $class; ?>">Guest</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
     </div>

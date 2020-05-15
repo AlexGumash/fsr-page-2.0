@@ -79,8 +79,8 @@
           </div> -->
         </div>
       </div>
-      <div class="account-field">
-        <span class="field-label">Personal details:</span>
+      <fieldset class="account-field">
+        <legend class="field-label">Personal details:</legend>
         <div class="contact-container">
           <div class="account-field-info">
             <span class="label">Salutation:</span>
@@ -153,80 +153,82 @@
               <input type="text" name="main-tasks" value="<?php echo $user['main-tasks'] ?>">
             </span>
           </div>
-          <fieldset class="account-field">
-            <legend class="field-label">Judge details:</legend>
-            <div class="contact-container">
-              <div class="account-field-info">
-                <label class="label" for="discipline">Discipline</label>
-                <div class="cont">
-                  <select class="" name="discipline" id="discipline">
-                    <option value="design event" <?php if ($user['discipline'] == 'design event') {
-                      echo "selected";
-                    } ?>>Design Event</option>
-                    <option value="cost&Manufacturing event" <?php if ($user['discipline'] == 'cost&Manufacturing event') {
-                      echo "selected";
-                    } ?>>Cost&Manufacturing Event</option>
-                    <option value="presentation event" <?php if ($user['discipline'] == 'presentation event') {
-                      echo "selected";
-                    } ?>>Presentation Event</option>
-                  </select>
-                </div>
-              </div>
-              <div class="account-field-info">
-                <label class="label" for="position">Position</label>
-                <div class="cont">
-                  <select class="" name="position" id="position">
-                    <option value="judge" <?php if ($user['judge-position'] == 'judge') {
-                      echo "selected";
-                    } ?>>Judge</option>
-                    <option value="senior judge" <?php if ($user['judge-position'] == 'senior judge') {
-                      echo "selected";
-                    } ?>>Senior Judge</option>
-                  </select>
-                </div>
-                <label class="label" for="special-fields">Special fields</label>
-                <div class="cont">
-                  <select class="" name="special-fields" id="special-fields">
-                    <option value="Overall Vehicle Concept" <?php if ($user['judge-special-fields'] == 'overall vehicle concept') {
-                      echo "selected";
-                    } ?>>Overall Vehicle Concept</option>
-                    <option value="Vehicle Dynamics & Tires" <?php if ($user['judge-special-fields'] == 'vehicle dynamics & tires') {
-                      echo "selected";
-                    } ?>>Vehicle Dynamics & Tires</option>
-                    <option value="Aerodynamics" <?php if ($user['judge-special-fields'] == 'aerodynamics') {
-                      echo "selected";
-                    } ?>>Aerodynamics</option>
-                    <option value="Mechanical & Structural Engineering" <?php if ($user['judge-special-fields'] == 'mechanical & structural engineering') {
-                      echo "selected";
-                    } ?>>Mechanical & Structural Engineering</option>
-                     <option value="Composites Structural Engineering" <?php if ($user['judge-special-fields'] == 'composites structural engineering') {
-                      echo "selected";
-                    } ?>>Composites Structural Engineering</option>
-                    <option value="Drivetrain" <?php if ($user['judge-special-fields'] == 'drivetrain') {
-                      echo "selected";
-                    } ?>>Drivetrain</option>
-                    <option value="LV-electronics" <?php if ($user['judge-special-fields'] == 'LV-electronics') {
-                      echo "selected";
-                    } ?>>LV-electronics</option>
-                    <option value="Engine (IC) & Peripherals" <?php if ($user['judge-special-fields'] == 'engine (IC) & peripherals') {
-                      echo "selected";
-                    } ?>>Engine (IC) & Peripherals</option>
-                    <option value="Electrical Propulsion (EV), HV system" <?php if ($user['judge-special-fields'] == 'electrical propulsion (EV), HV system') {
-                      echo "selected";
-                    } ?>>Electrical Propulsion (EV), HV system</option>
-                    <option value="Energy Storage" <?php if ($user['judge-special-fields'] == 'energy storage') {
-                      echo "selected";
-                    } ?>>Energy Storage</option>
-                    <option value="Driver Interface & Ergonomics" <?php if ($user['judge-special-fields'] == 'driver interface & ergonomics') {
-                      echo "selected";
-                    } ?>>Driver Interface & Ergonomics</option>                                                      
-                  </select>
-                </div>
-              </div>
-            </div>
-          </fieldset>
         </div>
-      </div>
+      </fieldset>
+      <fieldset class="account-field">
+        <legend class="field-label">Judge details:</legend>
+        <div class="contact-container">
+          <div class="account-field-info">
+            <label class="label" for="discipline">Discipline</label>
+            <div class="cont">
+              <select class="" name="discipline" id="discipline">
+                <option value="design event" <?php if ($user['discipline'] == 'design event') {
+                  echo "selected";
+                } ?>>Design Event</option>
+                <option value="cost&Manufacturing event" <?php if ($user['discipline'] == 'cost&Manufacturing event') {
+                  echo "selected";
+                } ?>>Cost&Manufacturing Event</option>
+                <option value="presentation event" <?php if ($user['discipline'] == 'presentation event') {
+                  echo "selected";
+                } ?>>Presentation Event</option>
+              </select>
+            </div>
+          </div>
+          <div class="account-field-info">
+            <label class="label" for="position">Position</label>
+            <div class="cont">
+              <select class="" name="position" id="position">
+                <option value="judge" <?php if ($user['judge-position'] == 'judge') {
+                  echo "selected";
+                } ?>>Judge</option>
+                <option value="senior judge" <?php if ($user['judge-position'] == 'senior judge') {
+                  echo "selected";
+                } ?>>Senior Judge</option>
+              </select>
+            </div>
+          </div>
+          <div class="account-field-info">
+            <label class="label" for="special-fields">Special fields</label>
+            <div class="cont">
+              <select class="" name="special-fields" id="special-fields">
+                <option value="Overall Vehicle Concept" <?php if ($user['judge-special-fields'] == 'overall vehicle concept') {
+                  echo "selected";
+                } ?>>Overall Vehicle Concept</option>
+                <option value="Vehicle Dynamics & Tires" <?php if ($user['judge-special-fields'] == 'vehicle dynamics & tires') {
+                  echo "selected";
+                } ?>>Vehicle Dynamics & Tires</option>
+                <option value="Aerodynamics" <?php if ($user['judge-special-fields'] == 'aerodynamics') {
+                  echo "selected";
+                } ?>>Aerodynamics</option>
+                <option value="Mechanical & Structural Engineering" <?php if ($user['judge-special-fields'] == 'mechanical & structural engineering') {
+                  echo "selected";
+                } ?>>Mechanical & Structural Engineering</option>
+                  <option value="Composites Structural Engineering" <?php if ($user['judge-special-fields'] == 'composites structural engineering') {
+                  echo "selected";
+                } ?>>Composites Structural Engineering</option>
+                <option value="Drivetrain" <?php if ($user['judge-special-fields'] == 'drivetrain') {
+                  echo "selected";
+                } ?>>Drivetrain</option>
+                <option value="LV-electronics" <?php if ($user['judge-special-fields'] == 'LV-electronics') {
+                  echo "selected";
+                } ?>>LV-electronics</option>
+                <option value="Engine (IC) & Peripherals" <?php if ($user['judge-special-fields'] == 'engine (IC) & peripherals') {
+                  echo "selected";
+                } ?>>Engine (IC) & Peripherals</option>
+                <option value="Electrical Propulsion (EV), HV system" <?php if ($user['judge-special-fields'] == 'electrical propulsion (EV), HV system') {
+                  echo "selected";
+                } ?>>Electrical Propulsion (EV), HV system</option>
+                <option value="Energy Storage" <?php if ($user['judge-special-fields'] == 'energy storage') {
+                  echo "selected";
+                } ?>>Energy Storage</option>
+                <option value="Driver Interface & Ergonomics" <?php if ($user['judge-special-fields'] == 'driver interface & ergonomics') {
+                  echo "selected";
+                } ?>>Driver Interface & Ergonomics</option>                                                      
+              </select>
+            </div>
+          </div>
+        </div>
+      </fieldset>
     </div>
     <div class="right-column">
       <?php
