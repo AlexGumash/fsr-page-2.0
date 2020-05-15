@@ -15,47 +15,69 @@
   <div class="choose-group">
     <span class="group-label" style="margin-bottom: 5px;">Choose your new user group:</span>
     <div class="groups-list">
+      <?php
+        if ($user['group'] != 'Regular user') {
+          ?>
+          <div class="group">
+            <a class="group-link" href="../pages/reset-group.php">Regular user</a>
+          </div>
+          <?php
+        }
+      ?>
+      <?php
+        if ($user['group'] != 'FSC team member') {
+          ?>
+          <div class="group">
+            <a class="group-link" href="../pages/group-team.php?class=fsc">FSC team member</a>
+            <span class="group-conf">You can join an existing team or create new team</span>
+          </div>
+          <?php
+        }
+      ?>
+      <?php
+        if ($user['group'] != 'FSE team member') {
+          ?>
+          <div class="group">
+            <a class="group-link" href="group-team.php?class=fse">FSE team member</a>
+            <span class="group-conf">You can join an existing team or create new team</span>
+          </div>
+          <?php
+        }
+      ?>
       <div class="group">
-        <a class="group-link" href="#">Regular user</a>
-      </div>
-      <div class="group">
-        <a class="group-link" href="group-team.php?class=<?php echo $class; ?>">team member</a>
-        <span class="group-conf">You can join an existing team or create new team</span>
-      </div>
-      <div class="group">
-        <a class="group-link" href="group-FA.php?class=<?php echo $class; ?>">Team faculty advisor</a>
+        <a class="group-link" href="group-FA.php">Team faculty advisor</a>
         <span class="group-conf">Needs to be confirmed by team member</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-judge.php?class=<?php echo $class; ?>"><?php echo $value; ?>Judge</a>
+        <a class="group-link" href="group-judge.php">Judge</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-org.php?class=<?php echo $class; ?>"">Organizer</a>
+        <a class="group-link" href="group-org.php">Organizer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-marshal.php?class=<?php echo $class; ?>">Marshal</a>
+        <a class="group-link" href="group-marshal.php">Marshal</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-scrutineer.php?class=<?php echo $class; ?>">Scrutineer</a>
+        <a class="group-link" href="group-scrutineer.php">Scrutineer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-volunteer.php?class=<?php echo $class; ?>">Volunteer</a>
+        <a class="group-link" href="group-volunteer.php">Volunteer</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-partner.php?class=<?php echo $class; ?>">Partner</a>
+        <a class="group-link" href="group-partner.php">Partner</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-press.php?class=<?php echo $class; ?>">Press</a>
+        <a class="group-link" href="group-press.php">Press</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
       <div class="group">
-        <a class="group-link" href="group-guest.php?class=<?php echo $class; ?>">Guest</a>
+        <a class="group-link" href="group-guest.php">Guest</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
     </div>
