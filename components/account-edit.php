@@ -137,7 +137,7 @@
               <input type="text" name="company" value="<?php echo $user['company'] ?>">
             </span>
           </div>
-          <div class="account-field-info">
+          <!-- <div class="account-field-info">
             <div class="label-container">
               <span class="label">Division:</span>
             </div>
@@ -152,10 +152,10 @@
             <span class="cont">
               <input type="text" name="main-tasks" value="<?php echo $user['main-tasks'] ?>">
             </span>
-          </div>
+          </div> -->
         </div>
       </fieldset>
-      <fieldset class="account-field">
+      <!-- <fieldset class="account-field">
         <legend class="field-label">Judge details:</legend>
         <div class="contact-container">
           <div class="account-field-info">
@@ -223,12 +223,12 @@
                 } ?>>Energy Storage</option>
                 <option value="Driver Interface & Ergonomics" <?php if ($user['judge-special-fields'] == 'driver interface & ergonomics') {
                   echo "selected";
-                } ?>>Driver Interface & Ergonomics</option>                                                      
+                } ?>>Driver Interface & Ergonomics</option>
               </select>
             </div>
           </div>
         </div>
-      </fieldset>
+      </fieldset> -->
     </div>
     <div class="right-column">
       <?php
@@ -271,7 +271,7 @@
                   <?php
                     foreach ($yearArray as $year) {
                     ?>
-                      
+
                     <option value="<?php echo $year ?> <?php if ($user['year'] == $year) {
                       echo "selected";
                     } ?>" ><?php echo $year ?></option>;
@@ -282,7 +282,7 @@
                   </select>
                 </div>
               </div>
-              <div class="account-field-info">
+              <!-- <div class="account-field-info">
                 <label for="license" class="label">Driver license №:</label>
                 <div class="cont">
                   <input type="text" name="license" value="<?php echo $userinfo['license'] ?>">
@@ -321,7 +321,7 @@
                   <img id="certificate" class="photo-img" src="../images/<?php echo $user['certificate']; ?>" alt="" style="margin-bottom: 5px;">
                   <input type="file" name="certificate" accept="image/*" style="padding: 0" onchange="readURL(this);">
                 </div>
-              </div>                           
+              </div>                            -->
               <div class="account-field-info">
                 <span class="label">Role:</span>
                 <div class="cont">
@@ -346,7 +346,7 @@
         }
 
       ?>
-      <div class="info-text">
+      <!-- <div class="info-text">
         <div class="account-field-info">
           <span class="label">Judging group:</span>
           <div class="cont">
@@ -359,7 +359,7 @@
             <span><?php echo $userinfo['judging queue'] ?></span>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <input type="submit" name="edit-submit" value="Confirm changes">

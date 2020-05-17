@@ -88,8 +88,8 @@
                       <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
                     </div>
                     <div>
-                      <input type="checkbox" name="fire-extinguishing">
-                      <label class="label" for="fire-extinguishing">The admission of electrical safety</label>
+                      <input type="checkbox" name="electrical-safety-admission">
+                      <label class="label" for="electrical-safety-admission">The admission of electrical safety</label>
                     </div>
                   </fieldset>
                 </div>
