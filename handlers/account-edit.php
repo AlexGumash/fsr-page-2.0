@@ -34,6 +34,7 @@
     $faculty = $_REQUEST['faculty'];
     $speciality = $_REQUEST['speciality'];
     $role = $_REQUEST['role'];
+    $position = $_REQUEST['position'];
     // $entryyear = $_REQUEST['entryyear'];
 
     $query = "UPDATE users SET login = '$login', firstname = '$firstname', lastname = '$lastname', email = '$email', postal = '$postal', phone = '$phone', clothingsize = '$clothingsize', description = '$description', company = '$company', photo = '$photo', salutation = '$salutation' WHERE id = '$id'";
@@ -42,7 +43,7 @@
       echo mysqli_error($date);
     }
 
-    $query = "UPDATE `user-team-info` SET uni = '$uni', faculty = '$faculty', speciality = '$speciality', role = '$role' WHERE userid = '$id'";
+    $query = "UPDATE `user-team-info` SET uni = '$uni', faculty = '$faculty', speciality = '$speciality', role = '$role', position = '$position' WHERE userid = '$id'";
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);

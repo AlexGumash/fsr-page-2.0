@@ -88,8 +88,8 @@
                       <label class="label" for="first-aid">The ability to provide first aid</label>
                     </div>
                     <div>
-                      <input type="checkbox" name="ms-Ofice">
-                      <label class="label" for="ms-Ofice">Strong ms Ofice skills</label>
+                      <input type="checkbox" name="ms-office">
+                      <label class="label" for="ms-office">Strong ms Ofice skills</label>
                     </div>
                     <div>
                       <input type="checkbox" name="photo-skill">
