@@ -26,20 +26,17 @@
           }
         }
 
-        // function checkPhone() {
-        //   var phone = $("input[name='phone']");
-        //   if (phone.val() != 0) {
-        //     $('input[type=submit]').attr('disabled', true);
-        //     var pattern = /\+\[a-zA-Z]+/;
-        //     if (phone.val().search(pattern) != 0) {
-        //       $('#valid_confirm_phone').html('')
-        //       $('input[type=submit]').attr('disabled', false);
-        //     } else {
-        //       $('#valid_confirm_phone').html("Phone must start with + and code country.")
-        //       $('input[type=submit]').attr('disabled', true);
-        //     }
-        //   }
-        // }
+        function checkPhone(input) {
+          if (input.validity.tooShort) {
+            input.setCustomValidity('The phone number is too short');
+          } else if (input.validity.tooLong) {
+            input.setCustomValidity('The phone number is too long');
+          } else if (input.validity.patternMismatch) {
+            input.setCustomValidity('The phone number is incorrect. Example: +12 345 123456789');
+          } else {
+            input.setCustomValidity('');
+          }
+        };
 
         function checkLogin() {
           var login = $("input[name='login']")
