@@ -125,7 +125,7 @@
                         <?php echo (getStatus($eventdocs['iad-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -163,7 +163,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1]?></span>
                       </div>
                     </div>
@@ -201,7 +201,7 @@
                         <?php echo (getStatus($eventdocs['se3d-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -238,7 +238,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0] . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1]?></span>
                       </div>
                     </div>
@@ -276,7 +276,7 @@
                         <?php echo (getStatus($eventdocs['ses-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -314,7 +314,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -352,7 +352,7 @@
                         <?php echo (getStatus($eventdocs['sesa-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -389,7 +389,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -430,7 +430,7 @@
                             <?php echo (getStatus($eventdocs['esf-status'])); ?>
                           </span>
                           <div class="">
-                            icon
+
                           </div>
                         </div>
                       </div>
@@ -467,7 +467,7 @@
                             <span><?php echo $log['message']; ?></span>
                           </div>
                           <div class="changelog-time">
-                            <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                            <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                             <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                           </div>
                         </div>
@@ -508,7 +508,7 @@
                         <?php echo (getStatus($eventdocs['bppv-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -545,7 +545,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -583,7 +583,7 @@
                         <?php echo (getStatus($eventdocs['bom-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -621,7 +621,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -659,7 +659,7 @@
                         <?php echo (getStatus($eventdocs['ef-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -697,7 +697,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -735,7 +735,7 @@
                         <?php echo (getStatus($eventdocs['smf-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -773,7 +773,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -812,7 +812,7 @@
                         <?php echo (getStatus($eventdocs['dss-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -849,7 +849,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -888,7 +888,7 @@
                         <?php echo (getStatus($eventdocs['edr-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -925,7 +925,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -964,7 +964,7 @@
                         <?php echo (getStatus($eventdocs['mu-status'])); ?>
                       </span>
                       <div class="">
-                        icon
+
                       </div>
                     </div>
                   </div>
@@ -1001,7 +1001,7 @@
                         <span><?php echo $log['message']; ?></span>
                       </div>
                       <div class="changelog-time">
-                        <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                        <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                         <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                       </div>
                     </div>
@@ -1043,7 +1043,7 @@
                             <?php echo (getStatus($eventdocs['esoq-status'])); ?>
                           </span>
                           <div class="">
-                            icon
+
                           </div>
                         </div>
                       </div>
@@ -1080,7 +1080,7 @@
                             <span><?php echo $log['message']; ?></span>
                           </div>
                           <div class="changelog-time">
-                            <span><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
+                            <span style="margin-right:5px"><?php echo $date_arr[2] . "." . $date_arr[1] . "." . $date_arr[0]  . " "?></span>
                             <span><?php echo $time_arr[0] . ":" . $time_arr[1] ?></span>
                           </div>
                         </div>

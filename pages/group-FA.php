@@ -7,6 +7,8 @@
   // $result = mysqli_query($date, $query);
   // $user = mysqli_fetch_array($result, MYSQL_ASSOC);
 ?>
+<?php $teamclass = "all"; ?>
+<?php include '../useful/teams.php'; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -60,15 +62,9 @@
               </span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/join-team-fa.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <fieldset class="choose-team-form">
-                <div class="account-field-info">
-                  <label for="uni" class="label">Choose your university:</label>
-                  <div class="cont">
-                    <input type="text" name="uni" value="<?php echo $userinfo['uni'] ?>" list="unis">
-                  </div>
-                </div>
                 <label for="team">Choose your team:</label>
                 <input type="text" name="team" value="" list="teams" class="choose-team-input">
               </fieldset>

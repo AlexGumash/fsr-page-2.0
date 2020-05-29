@@ -97,7 +97,7 @@
               <span>Events</span>
             </div>
             <?php
-              if ($_SESSION['id'] == $team['Captain']) {
+              if ($_SESSION['id'] == $team['captain']) {
                 ?>
                   <div class="team-menu-item" data_target='../components/team-join-apps.php?teamid=<?php echo $team['id']; ?>'>
                     <span>Applications</span>

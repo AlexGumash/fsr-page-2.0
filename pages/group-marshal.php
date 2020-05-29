@@ -56,14 +56,18 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-                To register as marshal please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as marshal.
+                To register as marshal please send the request. Wait for confirmation by an organizer. After confirmation, you will be registered as marshal.
               </span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/group-marshal.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <fieldset class="choose-team-form">
                 <div class="request-fields">
+                  <div class="request-fields__field">
+                    <label class="label" for="company">Company:</label>
+                    <input type="text" name="company" value="">
+                  </div>
                   <div class="request-fields__field">
                     <label class="label" for="description">Descripton:</label>
                     <input type="text" name="description" value="">
@@ -78,7 +82,7 @@
                   </div>
                   <fieldset class="request-fields__field">
                     <legend class="field-label">Skills:</legend>
-                    
+
                     <div>
                       <input type="checkbox" name="first-aid">
                       <label class="label" for="first-aid">The ability to provide first aid</label>
@@ -94,7 +98,7 @@
                   </fieldset>
                 </div>
               </fieldset>
-              <input type="submit" name="judge-request" value="Send request">
+              <input type="submit" name="marshal-request" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>
           </div>

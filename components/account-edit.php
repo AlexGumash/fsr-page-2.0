@@ -129,7 +129,7 @@
               <textarea name="description" class="desc-textarea"><?php echo $user['description'] ?></textarea>
             </span>
           </div>
-          <div class="account-field-info">
+          <!-- <div class="account-field-info">
             <div class="label-container">
               <span class="label">Company:</span>
             </div>
@@ -152,12 +152,12 @@
             <span class="cont">
               <input type="text" name="main-tasks" value="<?php echo $user['main-tasks'] ?>">
             </span>
-          </div>
+          </div> -->
         </div>
       </fieldset>
       <?php
 
-        if ($user['judgeid'] != 0) {
+        if ($user['group'] == "Judge") {
           ?>
           <fieldset class="account-field">
             <legend class="field-label">Judge details:</legend>
@@ -227,7 +227,7 @@
                     } ?>>Energy Storage</option>
                     <option value="Driver Interface & Ergonomics" <?php if ($user['judge-special-fields'] == 'driver interface & ergonomics') {
                       echo "selected";
-                    } ?>>Driver Interface & Ergonomics</option>                                                      
+                    } ?>>Driver Interface & Ergonomics</option>
                   </select>
                 </div>
               </div>
@@ -236,7 +236,7 @@
           <?php
         }
 
-      ?>   
+      ?>
     </div>
     <div class="right-column">
       <?php
@@ -245,6 +245,7 @@
           ?>
           <div class="photo" style="margin-bottom: 10px;">
             <div class="account-photo">
+              <label for="preview">Account photo</label>
               <img id="preview" class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="" style="margin-bottom: 5px;">
               <input type="file" name="photo" accept="image/*" style="padding: 0" onchange="readURL(this);">
             </div>
@@ -279,7 +280,7 @@
                   <?php
                     foreach ($yearArray as $year) {
                     ?>
-                      
+
                     <option value="<?php echo $year ?> <?php if ($user['year'] == $year) {
                       echo "selected";
                     } ?>" ><?php echo $year ?></option>;
@@ -329,17 +330,11 @@
                   <img id="certificate" class="photo-img" src="../images/<?php echo $user['certificate']; ?>" alt="" style="margin-bottom: 5px;">
                   <input type="file" name="certificate" accept="image/*" style="padding: 0" onchange="readURL(this);">
                 </div>
-              </div>                           
+              </div>
               <div class="account-field-info">
                 <span class="label">Role:</span>
                 <div class="cont">
                   <input type="text" name="role" value="<?php echo $userinfo['role'] ?>">
-                </div>
-              </div>
-              <div class="account-field-info">
-                <span class="label">Position:</span>
-                <div class="cont">
-                  <input type="text" name="position" value="<?php echo $userinfo['position'] ?>">
                 </div>
               </div>
               <!-- <div class="account-field-info">

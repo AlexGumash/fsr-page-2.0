@@ -56,14 +56,14 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-              To register as press please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as press.              </span>
+              To register as press please send the request. Wait for confirmation by an organizer. After confirmation, you will be registered as press.              </span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/group-press.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <label class="label" for="company">Company:</label>
               <input type="text" name="company" value="">
-              <input type="submit" name="choose-team-submit" value="Send request">
+              <input type="submit" name="press-request" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>
           </div>

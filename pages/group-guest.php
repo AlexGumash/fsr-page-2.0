@@ -56,12 +56,12 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-              To register as a guest please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as a guest.</span>
+              To register as a guest please send the request. Wait for confirmation by an organizer. After confirmation, you will be registered as a guest.</span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/group-guest.php" method="post">
             <!-- тут нужен другой хэндлер -->
-              <input type="submit" name="choose-team-submit" value="Send request">
+              <input type="submit" name="guest-request" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>
           </div>

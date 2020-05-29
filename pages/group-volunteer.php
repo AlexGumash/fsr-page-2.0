@@ -56,14 +56,18 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-                To register as volunteer please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as volunteer.
+                To register as volunteer please send the request. Wait for confirmation by an organizer. After confirmation, you will be registered as volunteer.
               </span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/group-vol.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <fieldset class="choose-team-form">
                 <div class="request-fields">
+                  <div class="request-fields__field">
+                    <label class="label" for="company">Company:</label>
+                    <input type="text" name="company" value="">
+                  </div>
                   <div class="request-fields__field">
                     <label class="label" for="description">Descripton:</label>
                     <input type="text" name="description" value="">
@@ -78,7 +82,7 @@
                   </div>
                   <fieldset class="request-fields__field">
                     <legend class="field-label">Skills:</legend>
-                    
+
                     <div>
                       <input type="checkbox" name="DL">
                       <label class="label" for="DL">Driver's license</label>
@@ -100,12 +104,13 @@
                       <label class="label" for="video-skill">Video editing skills</label>
                     </div>
                     <div>
-                      <input type="checkbox" name="fire-extinguishing"><label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+                      <input type="checkbox" name="fire-extinguishing">
+                      <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
                     </div>
                   </fieldset>
                 </div>
               </fieldset>
-              <input type="submit" name="judge-request" value="Send request">
+              <input type="submit" name="vol-request" value="Send request">
             </form>
             <span class="back-link"><a href="account.php">Back</a></span>
           </div>

@@ -6,6 +6,10 @@
     $class2 = 'EV';
   }
   $query = "SELECT * FROM teams WHERE class = '$class2'";
+  if ($teamclass == 'all') {
+    $query = "SELECT * FROM teams";
+  }
+
   $result = mysqli_query($date, $query);
 
 ?>

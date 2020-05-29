@@ -56,11 +56,11 @@
           <div class="choose-team">
             <div class="choose-team-notification">
               <span>
-                To register as a judge please send the request. Wait for confirmation by an organizer. After confirmation, you will be rgistered as judge.
+                To register as a judge please send the request. Wait for confirmation by an organizer. After confirmation, you will be registered as judge.
               </span>
             </div>
             <!-- тут нужен другой хэндлер -->
-            <form class="" action="../handlers/join-team.php" method="post">
+            <form class="" action="../handlers/judge-group-app.php" method="post">
             <!-- тут нужен другой хэндлер -->
               <fieldset class="choose-team-form">
                 <div class="request-fields">
@@ -88,21 +88,15 @@
                     <label class="label" for="discipline">Discipline</label>
                     <div class="cont">
                       <select class="request-fields__select" name="discipline" id="discipline">
-                        <option value="design event" <?php if ($user['discipline'] == 'design event') {
-                          echo "selected";
-                        } ?>>Design Event</option>
-                        <option value="cost&Manufacturing event" <?php if ($user['discipline'] == 'cost&Manufacturing event') {
-                          echo "selected";
-                        } ?>>Cost&Manufacturing Event</option>
-                        <option value="presentation event" <?php if ($user['discipline'] == 'presentation event') {
-                          echo "selected";
-                        } ?>>Presentation Event</option>
+                        <option value="design event">Design Event</option>
+                        <option value="cost&Manufacturing event">Cost&Manufacturing Event</option>
+                        <option value="presentation event">Presentation Event</option>
                       </select>
                     </div>
                   </div>
                   <fieldset class="request-fields__field">
                     <legend class="field-label">Skills:</legend>
-                    
+
                     <div>
                       <input type="checkbox" name="first-aid">
                       <label class="label" for="first-aid">The ability to provide first aid</label>
