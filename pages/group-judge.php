@@ -85,6 +85,10 @@
                     <input type="text" name="days" value="">
                   </div>
                   <div class="request-fields__field">
+                    <label class="label" for="accomodation">Accomodation:</label>
+                    <input type="text" name="accomodation" value="">
+                  </div>
+                  <div class="request-fields__field">
                     <label class="label" for="discipline">Discipline</label>
                     <div class="cont">
                       <select class="request-fields__select" name="discipline" id="discipline">

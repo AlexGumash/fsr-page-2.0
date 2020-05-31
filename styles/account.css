@@ -169,3 +169,15 @@ input, textarea {
 .nodata {
   color: rgb(94, 94, 94);
 }
+
+.account-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+}

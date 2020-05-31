@@ -103,30 +103,7 @@
             ?>
           </span>
         </div>
-        <div class="account-field-info">
-          <span class="label">Description:</span>
-          <span class="cont">
-            <?php
-            if ($user['description']) {
-              echo $user['description'];
-            } else {
-              echo '<span class="nodata">No data</span>';
-            }
-            ?>
-          </span>
-        </div>
-        <div class="account-field-info">
-          <span class="label">Company:</span>
-          <span class="cont">
-            <?php
-            if ($user['company']) {
-              echo $user['company'];
-            } else {
-              echo '<span class="nodata">No data</span>';
-            }
-            ?>
-          </span>
-        </div>
+
       </div>
     </div>
 
@@ -222,6 +199,130 @@
       <?php
     }
 
+  ?>
+  <?php
+    if ($user['group'] == 'Judge') {
+      $query = "SELECT * FROM `user-judge-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $userjudgeinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($userjudgeinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['company']) {
+                  echo $userjudgeinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Division:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['division']) {
+                  echo $userjudgeinfo['division'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Tasks:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['tasks']) {
+                  echo $userjudgeinfo['tasks'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Languages:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['languages']) {
+                  echo $userjudgeinfo['languages'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Participation days:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['part-days']) {
+                  echo $userjudgeinfo['part-days'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Accomodation:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['accomodation']) {
+                  echo $userjudgeinfo['accomodation'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Discipline:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['discipline']) {
+                  echo $userjudgeinfo['discipline'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Skills:</span>
+              <span class="cont skills">
+                <?php
+                if ($userjudgeinfo['first-aid'] == 'on') {
+                  echo "<div>First aid</div>";
+                }
+                if ($userjudgeinfo['fire-extinguishing'] == 'on') {
+                  echo "<div>Fire extinguishing</div>";
+                }
+                if ($userjudgeinfo['electrical-safety-admission'] == 'on') {
+                  echo "<div>Electrical safety admission</div>";
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
   ?>
 
 </div>

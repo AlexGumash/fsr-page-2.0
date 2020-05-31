@@ -8,6 +8,7 @@
     $mainTasks = $_REQUEST['main-tasks'];
     $languages = $_REQUEST['languages'];
     $days = $_REQUEST['days'];
+    $accomodation = $_REQUEST['accomodation'];
     $discipline = $_REQUEST['discipline'];
     $firstAid = $_REQUEST['first-aid'];
     $fireExtinguishing = $_REQUEST['fire-extinguishing'];
@@ -15,7 +16,7 @@
     
     $userid = $_SESSION['id'];
 
-    $query = "INSERT INTO `user-judge-info` VALUES (NULL, '$userid', '$company', '$division', '$mainTasks', '$languages', '$days', '$discipline', '$firstAid', '$fireExtinguishing', '$electricalSafetyAdmission', 'not confirmed')";
+    $query = "INSERT INTO `user-judge-info` VALUES (NULL, '$userid', '$company', '$division', '$mainTasks', '$languages', '$days', '$accomodation', '$discipline', '$firstAid', '$fireExtinguishing', '$electricalSafetyAdmission', 'not confirmed')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));

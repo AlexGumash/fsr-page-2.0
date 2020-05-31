@@ -37,7 +37,7 @@
     $position = $_REQUEST['position'];
     // $entryyear = $_REQUEST['entryyear'];
 
-    $query = "UPDATE users SET login = '$login', firstname = '$firstname', lastname = '$lastname', email = '$email', postal = '$postal', phone = '$phone', clothingsize = '$clothingsize', description = '$description', company = '$company', photo = '$photo', salutation = '$salutation' WHERE id = '$id'";
+    $query = "UPDATE users SET login = '$login', firstname = '$firstname', lastname = '$lastname', email = '$email', postal = '$postal', phone = '$phone', clothingsize = '$clothingsize', photo = '$photo', salutation = '$salutation' WHERE id = '$id'";
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);

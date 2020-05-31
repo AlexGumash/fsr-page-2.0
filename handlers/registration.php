@@ -18,7 +18,7 @@
     }
 
     if ($pass == $rep) {
-      $query = "INSERT INTO users VALUES (NULL, 0, '$login', '$password', '$salutation', '$firstname', '$lastname', '$email', '', '', '', '', '', 'Regular user', '', 0)";
+      $query = "INSERT INTO users VALUES (NULL, 0, '$login', '$password', '$salutation', '$firstname', '$lastname', '$email', '', '', '', 'Regular user', '', 0)";
       $result = mysqli_query($date, $query);
       if (!$result) {
         die(mysqli_error($date));
