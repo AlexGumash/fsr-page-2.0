@@ -206,7 +206,7 @@
       $result = mysqli_query($date, $query);
       $userjudgeinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($userjudgeinfo['status'] != 'confirmed') {
+      if ($userjudgeinfo['status'] != 'not confirmed') {
       ?>
       <div class="right-column">
         <div class="">
@@ -296,6 +296,54 @@
               </span>
             </div>
             <div class="account-field-info">
+              <span class="label">Position:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['position']) {
+                  echo $userjudgeinfo['position'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Judging group:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['judging-group']) {
+                  echo $userjudgeinfo['judging-group'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Judging queue:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['judging-queue']) {
+                  echo $userjudgeinfo['judging-queue'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Special fields:</span>
+              <span class="cont">
+                <?php
+                if ($userjudgeinfo['spec']) {
+                  echo $userjudgeinfo['spec'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
               <span class="label">Skills:</span>
               <span class="cont skills">
                 <?php
@@ -307,6 +355,401 @@
                 }
                 if ($userjudgeinfo['electrical-safety-admission'] == 'on') {
                   echo "<div>Electrical safety admission</div>";
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
+  ?>
+  
+  <?php
+    if ($user['group'] == 'Marshal') {
+      $query = "SELECT * FROM `user-marshal-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $usermarshalinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($usermarshalinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Description:</span>
+              <span class="cont">
+                <?php
+                if ($usermarshalinfo['description']) {
+                  echo $usermarshalinfo['description'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($usermarshalinfo['company']) {
+                  echo $usermarshalinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Languages:</span>
+              <span class="cont">
+                <?php
+                if ($usermarshalinfo['languages']) {
+                  echo $usermarshalinfo['languages'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Participation days:</span>
+              <span class="cont">
+                <?php
+                if ($usermarshalinfo['part-days']) {
+                  echo $usermarshalinfo['part-days'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Accomodation:</span>
+              <span class="cont">
+                <?php
+                if ($usermarshalinfo['accomodation']) {
+                  echo $usermarshalinfo['accomodation'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Skills:</span>
+              <span class="cont skills">
+                <?php
+                if ($usermarshalinfo['first-aid'] == 'on') {
+                  echo "<div>First aid</div>";
+                }
+                if ($usermarshalinfo['fire-extinguishing'] == 'on') {
+                  echo "<div>Fire extinguishing</div>";
+                }
+                if ($usermarshalinfo['electrical-safety-admission'] == 'on') {
+                  echo "<div>Electrical safety admission</div>";
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
+  ?>
+  
+  <?php
+    if ($user['group'] == 'Scruti') {
+      $query = "SELECT * FROM `user-scrutineer-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $userscrutiinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($userscrutiinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Description:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['description']) {
+                  echo $userscrutiinfo['description'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['company']) {
+                  echo $userscrutiinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Languages:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['languages']) {
+                  echo $userscrutiinfo['languages'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Participation days:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['part-days']) {
+                  echo $userscrutiinfo['part-days'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Accomodation:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['accomodation']) {
+                  echo $userscrutiinfo['accomodation'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Skills:</span>
+              <span class="cont skills">
+                <?php
+                if ($userscrutiinfo['first-aid'] == 'on') {
+                  echo "<div>First aid</div>";
+                }
+                if ($userscrutiinfo['fire-extinguishing'] == 'on') {
+                  echo "<div>Fire extinguishing</div>";
+                }
+                if ($userscrutiinfo['electrical-safety-admission'] == 'on') {
+                  echo "<div>Electrical safety admission</div>";
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Scruti's spec:</span>
+              <span class="cont">
+                <?php
+                if ($userscrutiinfo['spec']) {
+                  echo $userscrutiinfo['spec'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
+  ?>
+  <?php
+    if ($user['group'] == 'Volunteer') {
+      $query = "SELECT * FROM `user-volunteer-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $uservolunteerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($uservolunteerinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Description:</span>
+              <span class="cont">
+                <?php
+                if ($uservolunteerinfo['description']) {
+                  echo $uservolunteerinfo['description'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($uservolunteerinfo['company']) {
+                  echo $uservolunteerinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Languages:</span>
+              <span class="cont">
+                <?php
+                if ($uservolunteerinfo['languages']) {
+                  echo $uservolunteerinfo['languages'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Participation days:</span>
+              <span class="cont">
+                <?php
+                if ($uservolunteerinfo['part-days']) {
+                  echo $uservolunteerinfo['part-days'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Accomodation:</span>
+              <span class="cont">
+                <?php
+                if ($uservolunteerinfo['accomodation']) {
+                  echo $uservolunteerinfo['accomodation'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+            <div class="account-field-info">
+              <span class="label">Skills:</span>
+              <span class="cont skills">
+                <?php
+                if ($uservolunteerinfo['first-aid'] == 'on') {
+                  echo "<div>First aid</div>";
+                }
+                if ($uservolunteerinfo['fire-extinguishing'] == 'on') {
+                  echo "<div>Fire extinguishing</div>";
+                }
+                if ($uservolunteerinfo['DL'] == 'on') {
+                  echo "<div>Driver's license</div>";
+                }
+                if ($uservolunteerinfo['ms-office'] == 'on') {
+                  echo "<div>MS office</div>";
+                }
+                if ($uservolunteerinfo['photo-skill'] == 'on') {
+                  echo "<div>Photo</div>";
+                }
+                if ($uservolunteerinfo['video-skill'] == 'on') {
+                  echo "<div>Video</div>";
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
+  ?>
+  <?php
+    if ($user['group'] == 'Partner') {
+      $query = "SELECT * FROM `user-partner-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $userpartnerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($userpartnerinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($userpartnerinfo['company']) {
+                  echo $userpartnerinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
+                }
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="account-photo">
+          <img class="photo-img" src="../images/<?php echo $user['photo']; ?>" alt="">
+        </div>
+      </div>
+      <?php
+      }
+    }
+  ?>
+  <?php
+    if ($user['group'] == 'Press') {
+      $query = "SELECT * FROM `user-press-info` WHERE userid = '$id'";
+      $result = mysqli_query($date, $query);
+      $userpressinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      if ($userpressinfo['status'] != 'confirmed') {
+      ?>
+      <div class="right-column">
+        <div class="">
+          <div class="info-text">
+            <div class="account-field-info">
+              <span class="label">Company:</span>
+              <span class="cont">
+                <?php
+                if ($userpressinfo['company']) {
+                  echo $userpressinfo['company'];
+                } else {
+                  echo '<span class="nodata">No data</span>';
                 }
                 ?>
               </span>
