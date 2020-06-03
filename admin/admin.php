@@ -28,14 +28,15 @@
           </div>
 
           <div class="admin-menu">
-            <div class="admin-menu-item" data_target='event-application.php'>
+            <!-- <div class="admin-menu-item" data_target='event-application.php'>
               <span>Event applications</span>
-            </div>
-            <!-- <a href="user-groups-applications.php">
-              <div class="admin-menu-item">
-                <span>User groups applications</span>
+            </div> -->
+            <a href="event-applications.php">
+              <div class="admin-menu-item-link">
+                <span>Event applications</span>
               </div>
             </a>
+            <!--
             <a href="participants-panel.php">
               <div class="admin-menu-item">
                 <span>Participants panel</span>
