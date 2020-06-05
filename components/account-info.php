@@ -343,22 +343,7 @@
                 ?>
               </span>
             </div>
-            <div class="account-field-info">
-              <span class="label">Skills:</span>
-              <span class="cont skills">
-                <?php
-                if ($userjudgeinfo['first-aid'] == 'on') {
-                  echo "<div>First aid</div>";
-                }
-                if ($userjudgeinfo['fire-extinguishing'] == 'on') {
-                  echo "<div>Fire extinguishing</div>";
-                }
-                if ($userjudgeinfo['electrical-safety-admission'] == 'on') {
-                  echo "<div>Electrical safety admission</div>";
-                }
-                ?>
-              </span>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -372,14 +357,14 @@
       }
     }
   ?>
-  
+
   <?php
     if ($user['group'] == 'Marshal') {
       $query = "SELECT * FROM `user-marshal-info` WHERE userid = '$id'";
       $result = mysqli_query($date, $query);
       $usermarshalinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($usermarshalinfo['status'] != 'confirmed') {
+      if ($usermarshalinfo['status'] != 'not confirmed') {
       ?>
       <div class="right-column">
         <div class="">
@@ -473,14 +458,14 @@
       }
     }
   ?>
-  
+
   <?php
     if ($user['group'] == 'Scruti') {
       $query = "SELECT * FROM `user-scrutineer-info` WHERE userid = '$id'";
       $result = mysqli_query($date, $query);
       $userscrutiinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($userscrutiinfo['status'] != 'confirmed') {
+      if ($userscrutiinfo['status'] != ' not confirmed') {
       ?>
       <div class="right-column">
         <div class="">
@@ -592,7 +577,7 @@
       $result = mysqli_query($date, $query);
       $uservolunteerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($uservolunteerinfo['status'] != 'confirmed') {
+      if ($uservolunteerinfo['status'] != 'not confirmed') {
       ?>
       <div class="right-column">
         <div class="">
@@ -701,7 +686,7 @@
       $result = mysqli_query($date, $query);
       $userpartnerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($userpartnerinfo['status'] != 'confirmed') {
+      if ($userpartnerinfo['status'] != 'not confirmed') {
       ?>
       <div class="right-column">
         <div class="">
@@ -737,7 +722,7 @@
       $result = mysqli_query($date, $query);
       $userpressinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-      if ($userpressinfo['status'] != 'confirmed') {
+      if ($userpressinfo['status'] != 'not confirmed') {
       ?>
       <div class="right-column">
         <div class="">

@@ -98,22 +98,33 @@
                       </select>
                     </div>
                   </div>
-                  <fieldset class="request-fields__field">
-                    <legend class="field-label">Skills:</legend>
-
-                    <div>
-                      <input type="checkbox" name="first-aid">
-                      <label class="label" for="first-aid">The ability to provide first aid</label>
+                  <div class="account-field-info">
+                    <label class="label" for="position">Position</label>
+                    <div class="cont">
+                      <select class="" name="position" id="position">
+                        <option value="judge">Judge</option>
+                        <option value="senior judge">Senior Judge</option>
+                      </select>
                     </div>
-                    <div>
-                      <input type="checkbox" name="fire-extinguishing">
-                      <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+                  </div>
+                  <div class="account-field-info">
+                    <label class="label" for="spec">Special fields</label>
+                    <div class="cont">
+                      <select class="" name="spec" id="spec">
+                        <option value="Overall Vehicle Concept" >Overall Vehicle Concept</option>
+                        <option value="Vehicle Dynamics & Tires" >Vehicle Dynamics & Tires</option>
+                        <option value="Aerodynamics" >Aerodynamics</option>
+                        <option value="Mechanical & Structural Engineering" >Mechanical & Structural Engineering</option>
+                        <option value="Composites Structural Engineering" >Composites Structural Engineering</option>
+                        <option value="Drivetrain" >Drivetrain</option>
+                        <option value="LV-electronics" >LV-electronics</option>
+                        <option value="Engine (IC) & Peripherals" >Engine (IC) & Peripherals</option>
+                        <option value="Electrical Propulsion (EV), HV system" >Electrical Propulsion (EV), HV system</option>
+                        <option value="Energy Storage" >Energy Storage</option>
+                        <option value="Driver Interface & Ergonomics" >Driver Interface & Ergonomics</option>
+                      </select>
                     </div>
-                    <div>
-                      <input type="checkbox" name="electrical-safety-admission">
-                      <label class="label" for="electrical-safety-admission">The admission of electrical safety</label>
-                    </div>
-                  </fieldset>
+                  </div>
                 </div>
               </fieldset>
               <input type="submit" name="judge-request" value="Send request">

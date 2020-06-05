@@ -1,23 +1,8 @@
 <?php
 session_start();
 include '../../database/connection.php';
-// $query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `bom-status` = 2";
-// $result = mysqli_query($date, $query);
-
-function getStatus($status) {
-  if ($status == 0) {
-    return 'Not uploaded';
-  }
-  if ($status == 1) {
-    return 'Approved';
-  }
-  if ($status == 2) {
-    return 'On review';
-  }
-  if ($status == 3) {
-    return 'Failed';
-  }
-}
+$query = "SELECT * FROM `user-judge-info` JOIN users ON `user-judge-info`.userid = users.id";
+$result = mysqli_query($date, $query);
 ?>
 <?php
   if ($_SESSION['rights'] != 'admin') {
@@ -42,59 +27,51 @@ function getStatus($status) {
     </tr>
   </thead>
   <tbody>
-    <tr class="">
-      <td rowspan="8" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Company:</b> compnany</td>
-      <td rowspan="8" class="">not accepted</td>
-      <td rowspan="8" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Division:</b> division</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Main tasks:</b> some tasks</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Accomodation:</b> hotel</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Discipline:</b> Design Event</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
-    <tr class="">
-      <td rowspan="8" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Company:</b> compnany</td>
-      <td rowspan="8" class="">not accepted</td>
-      <td rowspan="8" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Division:</b> division</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Main tasks:</b> some tasks</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Accomodation:</b> hotel</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Discipline:</b> Design Event</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
+    <?php
+      while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        ?>
+        
+        <tr class="">
+          <td rowspan="11" class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+          <td class=""><b>Company:</b> <?php echo $application['company'] ?></td>
+          <td rowspan="11" class=""><?php echo $application['status'] ?></td>
+          <td rowspan="11" class="">Accept Decline</td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Division:</b> <?php echo $application['division'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Main tasks:</b> <?php echo $application['tasks'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Languages:</b> <?php echo $application['languages'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Participation days:</b> <?php echo $application['part-days'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Accomodation:</b> <?php echo $application['accomodation'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Discipline:</b> <?php echo $application['discipline'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Position:</b> <?php echo $application['position'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Judging queue:</b> <?php echo $application['queue'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Judging group:</b> <?php echo $application['group'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Special field:</b> <?php echo $application['spec'] ?></td>
+        </tr>
+        
+        <?php
+      }
+    ?>
+    
+    
   </tbody>
 </table>

@@ -10,13 +10,14 @@
     $days = $_REQUEST['days'];
     $accomodation = $_REQUEST['accomodation'];
     $discipline = $_REQUEST['discipline'];
-    $firstAid = $_REQUEST['first-aid'];
-    $fireExtinguishing = $_REQUEST['fire-extinguishing'];
-    $electricalSafetyAdmission = $_REQUEST['electrical-safety-admission'];
-    
+    $position = $_REQUEST['position'];
+    $group = $_REQUEST['group'];
+    $queue = $_REQUEST['queue'];
+    $spec = $_REQUEST['spec'];
+
     $userid = $_SESSION['id'];
 
-    $query = "INSERT INTO `user-judge-info` VALUES (NULL, '$userid', '$company', '$division', '$mainTasks', '$languages', '$days', '$accomodation', '$discipline', '$firstAid', '$fireExtinguishing', '$electricalSafetyAdmission', 'not confirmed')";
+    $query = "INSERT INTO `user-judge-info` VALUES (NULL, '$userid', '$company', '$division', '$mainTasks', '$languages', '$days', '$accomodation', '$discipline', '$position', '$group', '$queue', '$spec', 'not confirmed')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));

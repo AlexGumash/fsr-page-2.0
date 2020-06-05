@@ -328,9 +328,9 @@
           </div>
         </div>
         <div class="account-field-info">
-          <label class="label" for="special-fields">Special fields</label>
+          <label class="label" for="spec">Special fields</label>
           <div class="cont">
-            <select class="" name="special-fields" id="special-fields">
+            <select class="" name="spec" id="spec">
               <option value="Overall Vehicle Concept" <?php if ($userjudgeinfo['judge-special-fields'] == 'overall vehicle concept') {
                 echo "selected";
               } ?>>Overall Vehicle Concept</option>
@@ -373,9 +373,279 @@
 
       ?>
       <?php
-        if ($user['group'] == 'Organizer') {
-          // code...
+      if ($user['group'] == 'Scruti') {
+        $query = "SELECT * FROM `user-scrutineer-info` WHERE userid = '$id'";
+        $result = mysqli_query($date, $query);
+        $userscrutiinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        ?>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Description:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="description" value="<?php echo $userscrutiinfo['description'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Company:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="company" value="<?php echo $userscrutiinfo['company'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Languages:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="languages" value="<?php echo $userscrutiinfo['languages'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Participation days:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="part-days" value="<?php echo $userscrutiinfo['part-days'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Accomodation:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="accomodation" value="<?php echo $userscrutiinfo['accomodation'] ?>">
+          </span>
+        </div>
+
+        <fieldset class="request-fields__field">
+          <legend class="field-label">Skills:</legend>
+
+          <div>
+            <input type="checkbox" name="first-aid">
+            <label class="label" for="first-aid">The ability to provide first aid</label>
+          </div>
+          <div>
+            <input type="checkbox" name="fire-extinguishing">
+            <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+          </div>
+          <div>
+            <input type="checkbox" name="electrical-safety-admission">
+            <label class="label" for="electrical-safety-admission">The admission of electrical safety</label>
+          </div>
+        </fieldset>
+        <div class="request-fields__field">
+          <label class="label" for="spec">Scruti's spec:</label>
+          <div class="cont">
+            <select class="" name="spec" id="spec">
+              <option value="frame&body" >Frame&Body</option>
+              <option value="suspension&tires">Suspension&Tires</option>
+              <option value="Aerodynamics" >Aerodynamics</option>
+              <option value="Mechanical & Structural Engineering">Mechanical & Structural Engineering</option>
+              <option value="Composites Structural Engineering">Composites Structural Engineering</option>
+              <option value="Drivetrain">Drivetrain</option>
+              <option value="LV-electronics">LV-electronics</option>
+              <option value="Engine (IC) & Peripherals">Engine (IC) & Peripherals</option>
+              <option value="Electrical Propulsion (EV), HV system">Electrical Propulsion (EV), HV system</option>
+              <option value="Energy Storage">Energy Storage</option>
+            </select>
+          </div>
+        </div>
+
+        <?php
         }
+
+      ?>
+      <?php
+      if ($user['group'] == 'Volunteer') {
+        $query = "SELECT * FROM `user-volunteer-info` WHERE userid = '$id'";
+        $result = mysqli_query($date, $query);
+        $uservolunteerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        ?>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Description:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="description" value="<?php echo $uservolunteerinfo['description'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Company:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="company" value="<?php echo $uservolunteerinfo['company'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Languages:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="languages" value="<?php echo $uservolunteerinfo['languages'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Participation days:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="part-days" value="<?php echo $uservolunteerinfo['part-days'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Accomodation:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="accomodation" value="<?php echo $uservolunteerinfo['accomodation'] ?>">
+          </span>
+        </div>
+
+        <fieldset class="request-fields__field">
+          <legend class="field-label">Skills:</legend>
+
+          <div>
+            <input type="checkbox" name="DL">
+            <label class="label" for="DL">Driver's license</label>
+          </div>
+          <div>
+            <input type="checkbox" name="first-aid">
+            <label class="label" for="first-aid">The ability to provide first aid</label>
+          </div>
+          <div>
+            <input type="checkbox" name="ms-office">
+            <label class="label" for="ms-office">Strong ms Ofice skills</label>
+          </div>
+          <div>
+            <input type="checkbox" name="photo-skill">
+            <label class="label" for="photo-skill">Photography and photo editing skills</label>
+          </div>
+          <div>
+            <input type="checkbox" name="video-skill">
+            <label class="label" for="video-skill">Video editing skills</label>
+          </div>
+          <div>
+            <input type="checkbox" name="fire-extinguishing">
+            <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+          </div>
+        </fieldset>
+
+        <?php
+        }
+
+      ?>
+      <?php
+      if ($user['group'] == 'Marshal') {
+        $query = "SELECT * FROM `user-marshal-info` WHERE userid = '$id'";
+        $result = mysqli_query($date, $query);
+        $usermarshalinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        ?>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Description:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="description" value="<?php echo $usermarshalinfo['description'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Company:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="company" value="<?php echo $usermarshalinfo['company'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Languages:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="languages" value="<?php echo $usermarshalinfo['languages'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Participation days:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="part-days" value="<?php echo $usermarshalinfo['part-days'] ?>">
+          </span>
+        </div>
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Accomodation:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="accomodation" value="<?php echo $usermarshalinfo['accomodation'] ?>">
+          </span>
+        </div>
+
+        <fieldset class="request-fields__field">
+          <legend class="field-label">Skills:</legend>
+
+          <div>
+            <input type="checkbox" name="first-aid">
+            <label class="label" for="first-aid">The ability to provide first aid</label>
+          </div>
+          <div>
+            <input type="checkbox" name="fire-extinguishing">
+            <label class="label" for="fire-extinguishing">Experience in the use of fire extinguishing agentss</label>
+          </div>
+          <div>
+            <input type="checkbox" name="electrical-safety-admission">
+            <label class="label" for="electrical-safety-admission">The admission of electrical safety</label>
+          </div>
+        </fieldset>
+
+        <?php
+        }
+
+      ?>
+      <?php
+      if ($user['group'] == 'Partner') {
+        $query = "SELECT * FROM `user-partner-info` WHERE userid = '$id'";
+        $result = mysqli_query($date, $query);
+        $userpartnerinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        ?>
+
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Company:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="company" value="<?php echo $userpartnerinfo['company'] ?>">
+          </span>
+        </div>
+
+
+        <?php
+        }
+
+      ?>
+      <?php
+      if ($user['group'] == 'Press') {
+        $query = "SELECT * FROM `user-press-info` WHERE userid = '$id'";
+        $result = mysqli_query($date, $query);
+        $userpressinfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        ?>
+
+        <div class="account-field-info">
+          <div class="label-container">
+            <span class="label">Company:</span>
+          </div>
+          <span class="cont">
+            <input type="text" name="company" value="<?php echo $userpressinfo['company'] ?>">
+          </span>
+        </div>
+
+
+        <?php
+        }
+
       ?>
     </div>
   </div>
