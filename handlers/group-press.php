@@ -6,7 +6,7 @@
     $userid = $_SESSION['id'];
     $company = $_REQUEST['company'];
 
-    $query = "INSERT INTO `user-press-info` VALUES (NULL, '$userid', 'not confirmed', '$company')";
+    $query = "INSERT INTO `user-press-info` VALUES (NULL, '$company', '$userid', 'not confirmed')";
     $result = mysqli_query($date, $query);
     if (!$result) {
       die(mysqli_error($date));

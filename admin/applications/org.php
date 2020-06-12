@@ -1,23 +1,8 @@
 <?php
 session_start();
 include '../../database/connection.php';
-// $query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `bom-status` = 2";
-// $result = mysqli_query($date, $query);
-
-function getStatus($status) {
-  if ($status == 0) {
-    return 'Not uploaded';
-  }
-  if ($status == 1) {
-    return 'Approved';
-  }
-  if ($status == 2) {
-    return 'On review';
-  }
-  if ($status == 3) {
-    return 'Failed';
-  }
-}
+$query = "SELECT * FROM `user-org-info` JOIN users ON `user-org-info`.userid = users.id";
+$result = mysqli_query($date, $query);
 ?>
 <?php
   if ($_SESSION['rights'] != 'admin') {
@@ -39,10 +24,16 @@ function getStatus($status) {
     </tr>
   </thead>
   <tbody>
-    <tr class="">
-      <td class="">Вася бабабабабабабабабабабаба</td>
-      <td class="">not accepted</td>
-      <td class="">Accept</td>
-    </tr>
+  <?php
+    while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      ?>
+      <tr class="">
+        <td class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+        <td class=""><?php echo $application['status'] ?></td>
+        <td class="">Accept</td>
+      </tr>
+      <?php
+    }
+  ?>
   </tbody>
 </table>
