@@ -1,23 +1,8 @@
 <?php
 session_start();
 include '../../database/connection.php';
-// $query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `bom-status` = 2";
-// $result = mysqli_query($date, $query);
-
-function getStatus($status) {
-  if ($status == 0) {
-    return 'Not uploaded';
-  }
-  if ($status == 1) {
-    return 'Approved';
-  }
-  if ($status == 2) {
-    return 'On review';
-  }
-  if ($status == 3) {
-    return 'Failed';
-  }
-}
+$query = "SELECT * FROM `user-scrutineer-info` JOIN users ON `user-scrutineer-info`.userid = users.id";
+$result = mysqli_query($date, $query);
 ?>
 <?php
   if ($_SESSION['rights'] != 'admin') {
@@ -42,47 +27,42 @@ function getStatus($status) {
     </tr>
   </thead>
   <tbody>
-    <tr class="">
-      <td rowspan="6" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Description:</b> blablablablab</td>
-      <td rowspan="6" class="">not accepted</td>
-      <td rowspan="6" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Company:</b> company</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Scruti's spec:</b> Frame</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
-    <tr class="">
-      <td rowspan="6" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Description:</b> blablablablab</td>
-      <td rowspan="6" class="">not accepted</td>
-      <td rowspan="6" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Company:</b> company</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Scruti's spec:</b> Frame</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
+  <?php
+      while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        ?>
+        <tr class="">
+          <td rowspan="6" class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+          <td class=""><b>Description:</b><?php echo $application['description'] ?></td>
+          <td rowspan="6" class=""><?php echo $application['status'] ?></td>
+          <td rowspan="6" class="">Accept</td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Company:</b><?php echo $application['company'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Languages:</b><?php echo $application['languages'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Participation days:</b><?php echo $application['part-days'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Scruti's spec:</b><?php echo $application['spec'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Skills:</b><br><?php
+            if ($application['fire-extinguishing'] == 'on') {
+              echo('Experience in the use of fire extinguishing agentss,');
+            } ?><br><?php
+            if ($application['first-aid'] == 'on') {
+              echo('The ability to provide first aid,');
+            }?><br><?php
+            if ($application['electrical-safety-admission'] == 'on') {
+              echo('The admission of electrical safety');
+            }?>
+          </td>
+        </tr>
+        <?php
+      }
+    ?>
   </tbody>
 </table>

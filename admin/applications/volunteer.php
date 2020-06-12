@@ -1,23 +1,8 @@
 <?php
 session_start();
 include '../../database/connection.php';
-// $query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `bom-status` = 2";
-// $result = mysqli_query($date, $query);
-
-function getStatus($status) {
-  if ($status == 0) {
-    return 'Not uploaded';
-  }
-  if ($status == 1) {
-    return 'Approved';
-  }
-  if ($status == 2) {
-    return 'On review';
-  }
-  if ($status == 3) {
-    return 'Failed';
-  }
-}
+$query = "SELECT * FROM `user-volunteer-info` JOIN users ON `user-volunteer-info`.userid = users.id";
+$result = mysqli_query($date, $query);
 ?>
 <?php
   if ($_SESSION['rights'] != 'admin') {
@@ -42,41 +27,48 @@ function getStatus($status) {
     </tr>
   </thead>
   <tbody>
-    <tr class="">
-      <td rowspan="5" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Description:</b> blablablablab</td>
-      <td rowspan="5" class="">not accepted</td>
-      <td rowspan="5" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Company:</b> company</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
-    <tr class="">
-      <td rowspan="5" class="">Вася бабабабабабабабабабабаба</td>
-      <td class=""><b>Description:</b> blablablablab</td>
-      <td rowspan="5" class="">not accepted</td>
-      <td rowspan="5" class="">Accept</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Company:</b> company</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Languages:</b> english</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Participation days:</b> sunday, monday</td>
-    </tr>
-    <tr class="">
-      <td class=""><b>Skills:</b> The ability to provide first aid, Experience in the use of fire extinguishing agentss, The admission of electrical safety</td>
-    </tr>
+  <?php
+    while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      ?>
+        <tr class="">
+          <td rowspan="5" class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+          <td class=""><b>Description:</b><?php echo $application['description'] ?></td>
+          <td rowspan="5" class=""><?php echo $application['status'] ?></td>
+          <td rowspan="5" class="">Accept</td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Company:</b><?php echo $application['company'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Languages:</b><?php echo $application['languages'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Participation days:</b><?php echo $application['part-days'] ?></td>
+        </tr>
+        <tr class="">
+          <td class=""><b>Skills:</b><br><?php
+            if ($application['fire-extinguishing'] == 'on') {
+              echo('Experience in the use of fire extinguishing agentss,');
+            } ?><?php
+            if ($application['first-aid'] == 'on') {
+              echo('The ability to provide first aid,');
+            } ?><?php
+            if ($application['DL'] == 'on') {
+              echo(`Driver's license,`);
+            } ?><?php
+            if ($application['ms-office'] == 'on') {
+              echo(`Strong ms Ofice skills,`);
+            } ?><?php
+            if ($application['photo-skill'] == 'on') {
+              echo(`Photography and photo editing skills,`);
+            } ?><?php
+            if ($application['video-skill'] == 'on') {
+              echo(`Video editing skills`);
+            } ?>
+          </td>
+        </tr>
+      <?php
+    }
+  ?>
   </tbody>
 </table>
