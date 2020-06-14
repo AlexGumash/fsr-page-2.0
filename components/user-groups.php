@@ -20,11 +20,11 @@
           ?>
           <div class="group">
             <a class="group-link" href="../pages/reset-group.php">Regular user</a>
+            <span class="group-conf">To change your user group you should reset your group to Regular user</span>
           </div>
           <?php
-        }
-      ?>
-      <?php
+        } else {
+
         if ($user['group'] != 'FSC team member') {
           ?>
           <div class="group">
@@ -80,6 +80,7 @@
         <a class="group-link" href="group-guest.php">Guest</a>
         <span class="group-conf">Needs to be confirmed by admin</span>
       </div>
+    <?php } ?>
     </div>
   </div>
 </div>

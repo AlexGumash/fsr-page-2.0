@@ -29,8 +29,8 @@ $result = mysqli_query($date, $query);
           ?>
 
           <tr class="">
-            <td class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
-            <td class=""><?php echo $application['status'] ?></td>
+            <td class=""> <?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+            <td class=""> <?php echo $application['status'] ?></td>
             <td class="">Accept Decline</td>
           </tr>
           <?php

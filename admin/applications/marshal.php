@@ -46,16 +46,24 @@ $result = mysqli_query($date, $query);
           <td class=""><b>Participation days:</b><?php echo $application['part-days'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Skills:</b><br><?php
+          <td class=""><b>Skills:</b><br>
+            <?php
+            $skills = '';
             if ($application['fire-extinguishing'] == 'on') {
-              echo('Experience in the use of fire extinguishing agentss,');
-            } ?><?php
+              $skills .= 'Experience in the use of fire extinguishing agentss';
+            }
             if ($application['first-aid'] == 'on') {
-              echo('The ability to provide first aid,');
-            } ?><?php
+              if ($skills != '') {
+                $skills .= ', The ability to provide first aid';
+              }
+            }
             if ($application['electrical-safety-admission'] == 'on') {
-              echo('The admission of electrical safety,');
-            } ?>
+              if ($skills != '') {
+                $skills .= ', The admission of electrical safety';
+              }
+            }
+            echo $skills;
+            ?>
           </td>
         </tr>
       <?php

@@ -31,34 +31,42 @@ $result = mysqli_query($date, $query);
       while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         ?>
         <tr class="">
-          <td rowspan="6" class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
-          <td class=""><b>Description:</b><?php echo $application['description'] ?></td>
-          <td rowspan="6" class=""><?php echo $application['status'] ?></td>
+          <td rowspan="6" class=""> <?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+          <td class=""><b>Description:</b> <?php echo $application['description'] ?></td>
+          <td rowspan="6" class=""> <?php echo $application['status'] ?></td>
           <td rowspan="6" class="">Accept</td>
         </tr>
         <tr class="">
-          <td class=""><b>Company:</b><?php echo $application['company'] ?></td>
+          <td class=""><b>Company:</b> <?php echo $application['company'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Languages:</b><?php echo $application['languages'] ?></td>
+          <td class=""><b>Languages:</b> <?php echo $application['languages'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Participation days:</b><?php echo $application['part-days'] ?></td>
+          <td class=""><b>Participation days:</b> <?php echo $application['part-days'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Scruti's spec:</b><?php echo $application['spec'] ?></td>
+          <td class=""><b>Scruti's spec:</b> <?php echo $application['spec'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Skills:</b><br><?php
+          <td class=""><b>Skills:</b><br>
+            <?php
+            $skills = '';
             if ($application['fire-extinguishing'] == 'on') {
-              echo('Experience in the use of fire extinguishing agentss,');
-            } ?><br><?php
+              $skills .= 'Experience in the use of fire extinguishing agentss';
+            }
             if ($application['first-aid'] == 'on') {
-              echo('The ability to provide first aid,');
-            }?><br><?php
+              if ($skills != '') {
+                $skills .= ', The ability to provide first aid';
+              }
+            }
             if ($application['electrical-safety-admission'] == 'on') {
-              echo('The admission of electrical safety');
-            }?>
+              if ($skills != '') {
+                $skills .= ', The admission of electrical safety';
+              }
+            }
+            echo $skills;
+            ?>
           </td>
         </tr>
         <?php

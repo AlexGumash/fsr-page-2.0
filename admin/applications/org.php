@@ -28,8 +28,8 @@ $result = mysqli_query($date, $query);
     while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
       ?>
       <tr class="">
-        <td class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
-        <td class=""><?php echo $application['status'] ?></td>
+        <td class=""> <?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
+        <td class=""> <?php echo $application['status'] ?></td>
         <td class="">Accept</td>
       </tr>
       <?php

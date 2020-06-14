@@ -2,7 +2,7 @@
 <?php
   session_start();
   $id = $_SESSION['id'];
-  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.id = '$id'";
+  $query = "SELECT * FROM users WHERE id = '$id'";
   $result = mysqli_query($date, $query);
   $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
@@ -30,6 +30,9 @@
                 <span class="reset-group-line">Your current user group is <?php echo $user['group']; ?></span>
                 <!-- <span>Do you want to change your user group to "Regular user"?</span> -->
                 <?php
+                  $query = "SELECT * FROM users JOIN `user-team-info` ON `users`.id = `user-team-info`.userid WHERE `users`.id = '$id'";
+                  $result = mysqli_query($date, $query);
+                  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
                   if ($user['captain'] == 'Captain') {
                     $teamid = $user['teamid'];
                     $query = "SELECT * FROM teams WHERE id = '$teamid'";

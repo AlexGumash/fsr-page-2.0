@@ -46,26 +46,42 @@ $result = mysqli_query($date, $query);
           <td class=""><b>Participation days:</b><?php echo $application['part-days'] ?></td>
         </tr>
         <tr class="">
-          <td class=""><b>Skills:</b><br><?php
+          <td class=""><b>Skills:</b><br>
+            <?php
+            $skills = '';
             if ($application['fire-extinguishing'] == 'on') {
-              echo('Experience in the use of fire extinguishing agentss,');
-            } ?><?php
+              $skills .= 'Experience in the use of fire extinguishing agentss';
+            }
             if ($application['first-aid'] == 'on') {
-              echo('The ability to provide first aid,');
-            } ?><?php
+              if ($skills != '') {
+                $skills .= ', The ability to provide first aid';
+              }
+            }
             if ($application['DL'] == 'on') {
-              echo(`Driver's license,`);
-            } ?><?php
+              if ($skills != '') {
+                $skills .= ", Driver's license";
+              }
+            }
             if ($application['ms-office'] == 'on') {
-              echo(`Strong ms Ofice skills,`);
-            } ?><?php
+              if ($skills != '') {
+                $skills .= ", Strong ms Ofice skills";
+              }
+            }
             if ($application['photo-skill'] == 'on') {
-              echo(`Photography and photo editing skills,`);
-            } ?><?php
+              if ($skills != '') {
+                $skills .= ", Photography and photo editing skills";
+              }
+            }
             if ($application['video-skill'] == 'on') {
-              echo(`Video editing skills`);
-            } ?>
+              if ($skills != '') {
+                $skills .= ", Video editing skills";
+              }
+            }
+            
+            echo $skills;
+            ?>
           </td>
+          
         </tr>
       <?php
     }
