@@ -22,56 +22,48 @@ $result = mysqli_query($date, $query);
         Status
       </th>
       <th class="application-list-accept">
-        Accept/ Decline
+        Actions
       </th>
     </tr>
   </thead>
   <tbody>
     <?php
+    $i = 1;
       while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        if ($application['status'] == 'not confirmed') {
         ?>
-        
-        <tr class="">
+
+        <tr class="" id="application<?php echo $i ?>">
           <td rowspan="11" class=""><?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
-          <td class=""><b>Company:</b> <?php echo $application['company'] ?></td>
+          <td class="app-information">
+            <span><b>Company:</b> <?php echo $application['company'] ?></span>
+            <span><b>Division:</b> <?php echo $application['division'] ?></span>
+            <span><b>Main tasks:</b> <?php echo $application['tasks'] ?></span>
+            <span><b>Languages:</b> <?php echo $application['languages'] ?></span>
+            <span><b>Participation days:</b> <?php echo $application['part-days'] ?></span>
+            <span><b>Accomodation:</b> <?php echo $application['accomodation'] ?></span>
+            <span><b>Discipline:</b> <?php echo $application['discipline'] ?></span>
+            <span><b>Position:</b> <?php echo $application['position'] ?></span>
+            <span><b>Judging queue:</b> <?php echo $application['queue'] ?></span>
+            <span><b>Judging group:</b> <?php echo $application['group'] ?></span>
+            <span><b>Special field:</b> <?php echo $application['spec'] ?></span>
+          </td>
           <td rowspan="11" class=""><?php echo $application['status'] ?></td>
-          <td rowspan="11" class="">Accept Decline</td>
+          <td class="" rowspan="11">
+            <div onclick="acceptDicline(<?php echo $i?>, 'judge', 'accepted', <?php echo $application['userid']?>);">
+              <span>Accept</span>
+            </div>
+            <div onclick="acceptDicline(<?php echo $i?>, 'judge', 'declined', <?php echo $application['userid']?>);">
+              <span>Decline</span>
+            </div>
+          </td>
         </tr>
-        <tr class="">
-          <td class=""><b>Division:</b> <?php echo $application['division'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Main tasks:</b> <?php echo $application['tasks'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Languages:</b> <?php echo $application['languages'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Participation days:</b> <?php echo $application['part-days'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Accomodation:</b> <?php echo $application['accomodation'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Discipline:</b> <?php echo $application['discipline'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Position:</b> <?php echo $application['position'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Judging queue:</b> <?php echo $application['queue'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Judging group:</b> <?php echo $application['group'] ?></td>
-        </tr>
-        <tr class="">
-          <td class=""><b>Special field:</b> <?php echo $application['spec'] ?></td>
-        </tr>
-        
         <?php
       }
+      $i = $i + 1;
+      }
     ?>
-    
-    
+
+
   </tbody>
 </table>

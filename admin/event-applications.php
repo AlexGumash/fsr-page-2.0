@@ -10,6 +10,19 @@
     <title>FSR</title>
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" src='../scripts/ajax.js'></script>
+    <script type="text/javascript">
+        function acceptDicline(elemid, groupName, status, userid) {
+            $.ajax({
+              type: "post",
+              url: "../handlers/user-group-app-handler.php",
+              data: {group: groupName, status: status, userid: userid}
+            }).done(function(result){
+              if (result == '') {
+                $("#application"+elemid).toggle()
+              }
+            })
+        }
+    </script>
   </head>
   <body>
     <?php

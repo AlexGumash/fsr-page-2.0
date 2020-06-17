@@ -22,21 +22,32 @@ $result = mysqli_query($date, $query);
         Status
       </th>
       <th class="application-list-accept">
-        Accept/ Decline
+        Actions
       </th>
     </tr>
   </thead>
   <tbody>
   <?php
+  $i = 1;
     while ($application = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      if ($application['status'] == 'not confirmed') {
       ?>
-        <tr class="">
+        <tr class="" id="application<?php echo $i ?>">
           <td class=""> <?php echo $application['firstname'] . " " . $application['lastname']; ?></td>
           <td class=""><b>Company:</b> <?php echo $application['company'] ?></td>
           <td class=""> <?php echo $application['status'] ?></td>
-          <td class="">Accept</td>
+          <td class="">
+            <div onclick="acceptDicline(<?php echo $i?>, 'press', 'accepted', <?php echo $application['userid']?>);">
+              <span>Accept</span>
+            </div>
+            <div onclick="acceptDicline(<?php echo $i?>, 'press', 'declined', <?php echo $application['userid']?>);">
+              <span>Decline</span>
+            </div>
+          </td>
         </tr>
       <?php
+    }
+    $i = $i + 1;
     }
   ?>
   </tbody>

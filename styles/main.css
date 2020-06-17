@@ -1,15 +1,15 @@
-@import 'reset.css';
-@import 'header.css';
-@import 'sidebar.css';
-@import 'content.css';
-@import 'registration.css';
-@import 'account.css';
-@import 'groups.css';
-@import 'team.css';
-@import 'admin.css';
-@import 'recovery.css';
-@import 'application-settings.css';
-@import 'deadlines.css';
+@import "reset.css";
+@import "header.css";
+@import "sidebar.css";
+@import "content.css";
+@import "registration.css";
+@import "account.css";
+@import "groups.css";
+@import "team.css";
+@import "admin.css";
+@import "recovery.css";
+@import "application-settings.css";
+@import "deadlines.css";
 
 body {
   width: 100%;
@@ -59,4 +59,9 @@ body {
 
 .required-field {
   color: red;
+}
+
+.app-information {
+  display: flex;
+  flex-direction: column;
 }
