@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../database/connection.php';
-$query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `esf-status` = 2";
+$query = "SELECT * FROM `event-docs` JOIN `event-docs-approval` ON `event-docs`.id = `event-docs-approval`.`event-docs-id` WHERE `esf-status` != 0";
 $result = mysqli_query($date, $query);
 
 function getStatus($status) {
@@ -40,6 +40,7 @@ function getStatus($status) {
     </div>
   </div>
   <?php
+  $i = 1;
   while ($doc = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $teamid = $doc['teamid'];
     $query = "SELECT * FROM teams WHERE id = '$teamid'";
@@ -47,7 +48,7 @@ function getStatus($status) {
     $team = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 
     ?>
-    <div class="doc">
+    <div class="doc" id="doc<?php echo $i ?>">
       <div class="docs-list-1">
         <span><?php echo $team['name']; ?></span>
       </div>
@@ -56,15 +57,20 @@ function getStatus($status) {
           <a href="../../deadline-files/<?php echo $doc['esf']; ?>"><?php echo $doc['esf']; ?></a>
         </span>
       </div>
-      <div class="docs-list-3">
+      <div class="docs-list-3" id="docstatus<?php echo $i ?>">
         <span><?php echo getStatus($doc['esf-status']); ?></span>
       </div>
       <div class="docs-list-4">
-        <span>Accept</span>
-        <span>Decline</span>
+        <div onclick="acceptDicline(<?php echo $i?>, 'esf', 'accepted', <?php echo $doc['teamid']?>);">
+          <span>Accept</span>
+        </div>
+        <div onclick="acceptDicline(<?php echo $i?>, 'esf', 'declined', <?php echo $doc['teamid']?>);">
+          <span>Decline</span>
+        </div>
       </div>
     </div>
     <?php
+    $i = $i + 1;
   }
   ?>
 </div>

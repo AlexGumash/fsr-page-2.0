@@ -10,6 +10,19 @@
     <title>FSR</title>
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" src='../scripts/ajax.js'></script>
+    <script type="text/javascript">
+        function acceptDicline(elemid, discipline, status, teamid) {
+            $.ajax({
+              type: "post",
+              url: "../handlers/event-team-docs-handler.php",
+              data: {discipline: discipline, status: status, teamid: teamid}
+            }).done(function(result){
+              if (result == '') {
+                $("#docstatus"+elemid).html("Approved")
+              }
+            })
+        }
+    </script>
   </head>
   <body>
     <?php
