@@ -4,6 +4,18 @@
   $teamid = $_REQUEST['teamid'];
   $discipline = $_REQUEST['discipline'];
   $status = $_REQUEST['status'];
+  
+  $query = "SELECT * FROM `event-docs-approval` WHERE teamid = '$teamid'";
+  $result = mysqli_query($date, $query);
+  $approval = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  $approvalid = $approval['id'];
+  
+  $logstatus = 0;
+  if ($status == 'accepted') {
+    $logstatus = 'Approved';
+  } else {
+    $logstatus = 'Failed';
+  }
 
   if ($discipline == 'iad') {
     if ($status == 'accepted') {
@@ -15,6 +27,13 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'iad', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
 
@@ -29,6 +48,13 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'se3d', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
 
   if ($discipline == 'ses') {
@@ -41,6 +67,13 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'ses', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
 
@@ -55,6 +88,13 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'sesa', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
 
   if ($discipline == 'esf') {
@@ -67,6 +107,13 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'esf', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
 
@@ -81,7 +128,13 @@
     if (!$result) {
       echo mysqli_error($date);
     }
-
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'bppv', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
 
   if ($discipline == 'bom') {
@@ -94,6 +147,13 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'bom', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
   
@@ -108,6 +168,12 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'ef', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
   
   if ($discipline == 'smf') {
@@ -120,6 +186,12 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'smf', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
   
@@ -134,6 +206,12 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'dss', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
   
   if ($discipline == 'edr') {
@@ -146,6 +224,12 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'edr', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
   
@@ -160,6 +244,12 @@
     if (!$result) {
       echo mysqli_error($date);
     }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'mu', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
+    }
   }
   
   if ($discipline == 'esoq') {
@@ -172,6 +262,12 @@
     $result = mysqli_query($date, $query);
     if (!$result) {
       echo mysqli_error($date);
+    }
+    $logmessage = 'Status changed to ' . $logstatus;
+    $query = "INSERT INTO `docs-change-log` VALUES (NULL, '$approvalid', 'esoq', '$logmessage', NULL)";
+    $result = mysqli_query($date, $query);
+    if (!$result) {
+      die("Error. Try again later");
     }
   }
 
