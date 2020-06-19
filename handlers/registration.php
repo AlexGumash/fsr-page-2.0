@@ -45,7 +45,7 @@
     mail($email, $subject, $message, $headers);
 
     $_SESSION['email-conf'] = "success";
-    header('Location: ../pages/registration.php');
+    header('Location: ../index.php');
   } else {
     die("Error!");
   }

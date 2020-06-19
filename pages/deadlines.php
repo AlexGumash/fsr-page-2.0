@@ -93,7 +93,7 @@
       <div class="middle">
         <div class="" style="width: 80%; margin: 0 auto; padding-top: 20px">
           <div class="application-settings-header">
-            <span>Deadlinens for Formula Student Russia 2020 event</span>
+            <span>Deadlines for Formula Student Russia 2020 event</span>
           </div>
           <div class="application-settings-header-links">
             <a href="myteam.php" style="margin-right:10px">Back to my team</a>

@@ -65,8 +65,8 @@
       echo mysqli_error($date);
     }
 
-    if ($user['teamid'] != 0) {
-      $query = "UPDATE `user-team-info` SET uni = '$uni', faculty = '$faculty', speciality = '$speciality', role = '$role', position = '$position' WHERE userid = '$id'";
+    if ($user['group'] == 'FSC team member' || $user['group'] == 'FSE team member') {
+      $query = "UPDATE `user-team-info` SET uni = '$uni', faculty = '$faculty', speciality = '$speciality', role = '$role' WHERE userid = '$id'";
       $result = mysqli_query($date, $query);
       if (!$result) {
         echo mysqli_error($date);
@@ -121,6 +121,11 @@
       }
     }
 
+    $email = $user['email'];
+    $subject = "Formula Student Russia Website";
+    $message = 'Your account data has been just changed.';
+    $headers = "Content-type: text/html";
+    mail($email, $subject, $message, $headers);
     // if ($user['group'] == 'Organizer') {
     //   $query = "UPDATE `user-org-info` SET description = '$description', company = '$company', languages = '$languages', `part-days` = '$part_days', accomodation = '$accomodation', `first-aid` = '$firstAid', `fire-extinguishing` = '$fireExtinguishing', `electrical-safety-admission` = '$electricalSafetyAdmission' WHERE userid = '$id'";
     //   $result = mysqli_query($date, $query);
